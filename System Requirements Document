@@ -1,0 +1,41 @@
+1. Data Flow
+Question: What does this block process?
+Requirement Analysis: The circuit is used to smooth temperature measurements. It sits between the sensor (input) and the display (output).
+Specification:
+- Input signal: 8-bit data from the sensor → Data_In[7:0]
+- Output signal: 8-bit averaged data for display → Data_Out[7:0]
+
+2. Synchronization
+Question: How does this block operate in real time?
+Requirement Analysis: Classified as a sequential circuit, it requires a clock for coordination and a reset to clear old data.
+Specification:
+- Clock input: clk
+- Reset input (active low): rst_n
+
+3. Control / Handshaking
+Question: How to distinguish valid data from noise?
+Requirement Analysis: Sensors may produce invalid or noisy samples. The circuit must accept only valid inputs and indicate when its output is reliable.
+Specification:
+- Valid input flag: Valid_In (sensor signals data is valid)
+- Valid output flag: Valid_Out (circuit signals output is trustworthy after 4 samples are collected)
+
+4. Physical Mapping (Tiny Tapeout Platform)
+Question: How are signals mapped to the physical chip pins?
+Requirement Analysis: Tiny Tapeout provides 24 pins: 8 ui_in, 8 uo_out, 8 uio.
+Specification (Interface Mapping):
+- Data_In[7:0] → ui_in[7:0]
+- Data_Out[7:0] → uo_out[7:0]
+- Valid_In → uio_in[0]
+- Valid_Out → uio_out[1] (avoiding conflict with uio_out[0])
+
+5. Microarchitecture
+Question: What internal components are required to compute the 4-point average?
+Requirement Analysis:
+Storage: Must retain the 4 most recent samples.
+Arithmetic: Must add 4 samples and divide by 4.
+Overflow Risk: Maximum sum is 255×4=1020.
+Specification:
+- Shift register window: 4 × 8-bit registers (total 32 flip-flops).
+- Accumulator: 10-bit register (to safely store sums up to 1023).
+- Division by 4: Implemented via right shift by 2 bits (>> 2).
+
