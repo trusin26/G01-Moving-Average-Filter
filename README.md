@@ -5,7 +5,7 @@ Project name: Four-Point Moving Average Filter
 Introduction
 
 The 4-point moving average filter is a basic digital signal processing algorithm used to smooth data by filtering out high-frequency random noise. The circuit continuously computes the average of the 4 most recent data samples:
-y[n]=(x[n]+x[n-1]+x[n-2]+x[n-3))/4
+y[n]=(x[n]+x[n-1]+x[n-2]+x[n-3])/4
 
 In digital hardware, this process operates through three core mechanisms:
 - Sliding Window: The circuit uses registers (delay line) to maintain a “window” containing exactly the 4 latest data samples. Each time a clock pulse and valid input signal arrive, the newest sample is pushed into the window, while the oldest sample (from 4 cycles earlier) is discarded.
