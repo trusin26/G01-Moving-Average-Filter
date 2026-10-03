@@ -1,0 +1,47 @@
+1. Context and System Requirements
+Application Purpose: This hardware IP block is designed to smooth temperature measurements before sending them to the display. This eliminates random noise and prevents the displayed value from fluctuating continuously.
+Functional Requirements:
+- Receive a data stream.
+- Maintain a sliding window of the 4 most recent samples.
+- Compute the running sum and divide by 4 to obtain the average.
+Control Requirements:
+- Only load data when the input sample is confirmed valid.
+- Only assert a valid output flag once the initial 4 samples have been collected.
+
+2. I/O Interface Specification
+The circuit interface is fully aligned with the 24-pin physical constraint of the Tiny Tapeout platform (8 input pins, 8 output pins, 8 bidirectional pins). To avoid mapping conflicts, the output flag pin has been renumbered.
+
+| Physical Signal | Direction | Width | Logical Signal | Functional Description |
+|-----------------|-----------|-------|----------------|------------------------|
+| clk             | Input     | 1 bit | Clock          | System synchronization clock. |
+| rst_n           | Input     | 1 bit | Reset          | Asynchronous reset (active low). |
+| ui_in[7:0]      | Input     | 8 bit | Data_In        | Bus receiving temperature samples from sensor. |
+| uio_in[0]       | Input     | 1 bit | Valid_In       | Flag indicating valid input sample. |
+| uo_out[7:0]     | Output    | 8 bit | Data_Out       | Bus outputting averaged result. |
+| uio_out[1]      | Output    | 1 bit | Valid_Out      | Flag indicating reliable output after warm-up. |
+
+3. Microarchitecture Specification
+The internal design is divided into two subsystems to optimize area and prevent arithmetic risks.
+3.1 Datapath
+- Shift Register Window: A queue of 4 × 8-bit registers (32 flip-flops) to store the 4 most recent samples.
+- Safe Accumulator: To avoid overflow when summing 4 maximum samples (255 × 4 = 1020), the accumulator register must be 10 bits wide.
+- Sliding Accumulation Logic: Instead of recomputing the sum with 3 adders each cycle, the circuit updates the sum by adding the newest sample and subtracting the oldest sample, reducing combinational cell usage.
+- Division by 4: Implemented by right-shifting the 10-bit sum by 2 bits, directly extracting the relevant bits for output without additional logic.
+
+3.2 Control Path
+- Warm-up Management: A 2-bit counter tracks the initial samples. Output remains invalid until the window is filled.
+- Status Flag: Valid_Out is asserted only after the counter confirms 4 valid samples have been loaded and Valid_In is active.
+
+4. Verification Plan
+To ensure RTL correctness, the testbench must simulate the following scenarios before synthesis:
+Mandatory Cases:
+- Constant input stream (output must equal input).
+- Step input.
+- Increasing sequence.
+- Behavior when fewer than 4 samples are available.
+Boundary Case 1 (Overflow Check): Continuous maximum input (255). Output must remain 255 without wraparound errors.
+Boundary Case 2 (Hold Check): Deassert uio_in[0] mid-process. The window must freeze, reject invalid data, and output flag must drop to 0.
+
+5. Synthesis Targets
+Logic Resources: Post-OpenLane synthesis, the design must fit within 200–280 standard cells.
+Flip-Flops: Expected total = 45 flip-flops (32 for window, 10 for accumulator, 2 for counter, 1 for flag).
