@@ -1,7 +1,30 @@
-Functional Requirements:
-- Sampling and Storage: The circuit must be capable of receiving and maintaining a window containing exactly 4 of the most recent data samples.
-- Average Calculation: The system must accumulate the values of these 4 samples (running sum) and divide by 4 to produce the average.
-- Data Flow Control: The circuit is only allowed to update the window at each cycle if the input sample is confirmed to be valid.
-- Status Reporting: The system must be able to recognize when its output data is reliable (after collecting the initial 4 samples) and assert a valid flag to notify the upper layer.
+Function Requirements:
 
-Resource Constraints: The design must be optimized to operate within a reference scale of approximately 200–280 standard cells.
+FR1 — Sampling
+The circuit shall accept an 8-bit input sample when Valid_In is asserted.
+
+FR2 — Window Storage
+The circuit shall maintain a sliding window containing the four most recent
+valid input samples.
+
+FR3 — Average Calculation
+The circuit shall calculate the arithmetic average of the four samples:
+
+        Average = (x[n] + x[n-1] + x[n-2] + x[n-3]) / 4
+
+FR4 — Conditional Update
+The sample window and associated calculation state shall be updated only
+when Valid_In is asserted.
+
+FR5 — Output Validity
+The circuit shall indicate that the output is valid only after four valid
+samples have been received.
+
+FR6 — Reset
+The circuit shall initialize its internal state to a known state when reset
+is asserted.
+---
+Resource Constraints: 
+RC1 — Area
+The implementation is targeted at approximately 200–280 standard cells
+after synthesis.
