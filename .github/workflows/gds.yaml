@@ -1,0 +1,33 @@
+name: GDS
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  gds:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+        with:
+          submodules: true
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Build GDS
+        uses: tinytapeout/tt-gds-action@v2
+        with:
+          cli_version: "tt_cli==0.11.1"
+
+      - name: Save artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: gds-artifacts
+          path: |
+            runs/wokwi/
+            !runs/wokwi/tmp
