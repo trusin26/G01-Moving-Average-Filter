@@ -111,7 +111,18 @@ module tb_moving_average_filter;
         ui_in = 8'd200; // Cố tình bơm nhiễu để xem có lọt vào không
         #10;
         check("Ca 8  en=0 giua chung -> giu out=35, ngat valid", 8'd35, 1'b0); 
+// Ca 9: Ca biên - Bơm liên tục giá trị Max (255)
+        uio_in[0] = 1'b1;
+        ui_in = 8'd255; #10;
+        ui_in = 8'd255; #10;
+        ui_in = 8'd255; #10;
+        ui_in = 8'd255; #10;
+        check("Ca 9  Ca bien - Nap lien tuc Max 255", 8'd255, 1'b1);
 
+        // Ca 10: Xả cửa sổ - Bơm đột ngột giá trị 0
+        ui_in = 8'd0; #10;
+        // Cửa sổ lúc này: [255, 255, 255, 0]. Tổng = 765. Trung bình = 765/4 = 191
+        check("Ca 10 Xa cua so - Dua 1 mau ve 0", 8'd191, 1'b1);
         // ----------------------------------------------------
         // TỔNG HỢP KẾT QUẢ ĐÁNH GIÁ
         // ----------------------------------------------------
