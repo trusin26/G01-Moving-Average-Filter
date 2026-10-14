@@ -1,0 +1,43 @@
+# G01 · Bảng Yêu cầu Hệ thống / System Requirements
+**Dự án / Project:** Bộ lọc trung bình trượt bốn điểm / 4-point Moving Average Filter
+**Mã dự án / Project Code:** G01
+**Loại mạch / Circuit Type:** Kỹ thuật số Tuần tự / Sequential Digital
+
+---
+
+## 1. Tổng quan & Bối cảnh / Overview & Context
+
+Khối G01 đóng vai trò làm trơn số đo nhiệt độ trước khi hiển thị ra màn hình, giúp loại bỏ nhiễu và ngăn hiện tượng nhảy số liên tục. 
+*The G01 block serves to smooth temperature readings before display, eliminating noise and preventing continuous value fluctuations.*
+
+## 2. Yêu cầu Chức năng & Cấu trúc / Functional & Structural Requirements
+
+| ID | Mức / Level | Yêu cầu / Requirement |
+|---|---|---|
+| REQ-G01-001 | Bắt buộc (M) | **Chức năng lõi:** Thực hiện đúng và đầy đủ thuật toán của bộ lọc trung bình trượt 4 điểm.<br>*Core Function: Accurately and fully implement the 4-point moving average filter algorithm.* |
+| REQ-G01-002 | Bắt buộc (M) | **Giao diện:** Thiết kế phải tuân thủ đúng ánh xạ chân đã quy định (9 bit vào, 9 bit ra, có tín hiệu hợp lệ).<br>*Interface: The design must strictly adhere to the specified pin mapping (9-bit input, 9-bit output, with valid signals).* |
+| REQ-G01-003 | Bắt buộc (M) | **Cấu trúc:** Phải là mạch kỹ thuật số tuần tự, có chứa các phần tử nhớ (flip-flops) và hoạt động đồng bộ theo xung nhịp đồng hồ.<br>*Structure: Must be a sequential digital circuit containing memory elements (flip-flops) and operating synchronously with a clock.* |
+| REQ-G01-004 | Bắt buộc (M) | **Quy mô:** Diện tích và tài nguyên tiêu thụ phải nằm trong giới hạn hợp lý cho một ô Tiny Tapeout 1x1 tile (ước lượng 200–280 cell).<br>*Scale: Area and resource consumption must fall within reasonable limits for a 1x1 Tiny Tapeout tile (estimated 200-280 cells).* |
+
+## 3. Yêu cầu Kiểm chứng / Verification Requirements
+
+| ID | Mức / Level | Yêu cầu / Requirement |
+|---|---|---|
+| REQ-G01-010 | Bắt buộc (M) | **Testbench gốc:** Phải vượt qua các ca kiểm thử quy định: chuỗi hằng số, đáp ứng bước nhảy, chuỗi tăng dần và hành vi cửa sổ chưa đầy.<br>*Standard Testbench: Must pass the mandated test cases: constant sequence, step response, incremental sequence, and incomplete window behavior.* |
+| REQ-G01-011 | Bắt buộc (M) | **Testbench mở rộng:** Bắt buộc bổ sung ít nhất 2 ca kiểm thử tự xây dựng, trong đó phải có 1 ca biên (Edge Case).<br>*Extended Testbench: Must add at least 2 self-developed test cases, including 1 edge case.* |
+| REQ-G01-012 | Bắt buộc (M) | **Tính minh chứng:** Mọi khẳng định (logic, timing, kết quả) đều phải có bằng chứng số (waveform, report) đính kèm và nêu rõ điều kiện sinh ra.<br>*Evidentiary Rule: Every claim (logic, timing, results) must be backed by attached digital artifacts (waveforms, reports) with clearly stated conditions.* |
+
+## 4. Yêu cầu Phân tích & Bàn giao / Analysis & Deliverable Requirements
+
+| ID | Mức / Level | Yêu cầu / Requirement |
+|---|---|---|
+| REQ-G01-020 | Bắt buộc (M) | **Phân tích phần cứng:** Đối chiếu số lượng flip-flop thực tế với ước tính 32 ô nhớ ban đầu, giải thích chi tiết phần dư và so sánh hiệu quả với kiến trúc cộng thẳng.<br>*Hardware Analysis: Compare actual flip-flop count against the initial 32-memory-cell estimate, detail the remainder, and compare efficiency with a direct-summation architecture.* |
+| REQ-G01-021 | Bắt buộc (M) | **Hồ sơ nghiệm thu:** Nộp đủ 8 thành phần bắt buộc: bối cảnh, sơ đồ khối, phân loại, bảng giao diện, artifact số, vòng đời, ma trận truy vết (RTM-lite) và kết luận.<br>*Acceptance Deliverables: Submit all 8 mandatory components: context, block diagram, classification, interface table, digital artifacts, lifecycle, traceability matrix (RTM-lite), and conclusion.* |
+
+## 5. Giới hạn Phạm vi / Out of Scope
+
+Thiết kế này bị nghiêm cấm đưa ra các khẳng định vượt mức. Các hạng mục sau nằm ngoài phạm vi dự án:
+*This design is strictly prohibited from making overstated claims. The following items are out of project scope:*
+
+1. **Kiến trúc:** Cửa sổ mẫu dài hơn 4, hệ số có trọng số, hoặc lọc IIR. / *Architecture: Windows larger than 4 samples, weighted coefficients, or IIR filtering.*
+2. **Vật lý & Chế tạo:** Thiết kế mức transistor, tự động đặt tuyến vật lý (Physical Design), ASIC sign-off, đưa đi chế tạo (Tape-out) và kiểm tra vi mạch thực tế (Post-fabrication testing). / *Physical & Fabrication: Transistor-level design, manual physical design, ASIC sign-off, tape-out, and post-fabrication silicon testing.*

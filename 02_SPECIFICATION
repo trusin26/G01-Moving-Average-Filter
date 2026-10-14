@@ -1,0 +1,66 @@
+# G01 · Đặc tả Hệ thống / System Specification
+
+> ⚠️ **Nợ kỹ thuật & Lưu ý thiết kế (Technical Debt & Design Note):** 
+> Đặc tả này yêu cầu mạch lõi phải được bọc trong một module ánh xạ chân (wrapper) chuẩn Tiny Tapeout. Khi tiến hành thiết kế RTL, kỹ sư cần chú ý phân bổ lại chân `uio[0]` để tránh xung đột tĩnh giữa tín hiệu vào (`valid_in`) và tín hiệu ra (`valid_out`).
+> 
+> *Technical Debt & Design Note: This spec requires the core to be wrapped in a standard Tiny Tapeout pin-mapping module. During RTL design, the engineer must reallocate pin `uio[0]` to avoid static conflicts between input and output.*
+
+---
+
+## 1. Bảng Hành vi Đặc tả / Behavioral Specification Table
+
+Đây là quy tắc vận hành cốt lõi của lõi lọc. Kỹ sư RTL bắt buộc phải code bám sát hành vi này ở từng giai đoạn.
+*This is the core operational rule of the filter core. The RTL engineer must strictly code according to these behaviors.*
+
+| Trạng thái hệ thống<br>*System State*              | `rst_n` | `valid_in` | Số mẫu<br>*(`count_q`)* | Hành vi Tích lũy (`sum_q`)<br>*Accumulation Behavior*                               | `valid_out` | Kết quả (`avg_out`)<br>*Result*      |
+|----------------------------------------------------|:-------:|:----------:|:-----------------------:|-------------------------------------------------------------------------------------|:-----------:|--------------------------------------|
+| **Reset (Khởi tạo)**<br>*Initialization*           |   `0`   |     X      |          `0`            | Xóa về `0`<br>*Clears to 0*                                                         |     `0`     | Xóa về `0`<br>*Clears to 0*          |
+| **Tạm nghỉ**<br>*Idle / Hold*                      |   `1`   |    `0`     | Giữ nguyên<br>*Holds*   | Giữ nguyên trạng thái<br>*Holds state*                                              |     `0`     | Giữ nguyên<br>*Holds state*          |
+| **Nạp đầy**<br>*Filling Window*<br>*(Mẫu 1-3)*     |   `1`   |    `1`     |  `< 4`<br>*(Tăng)*      | Cộng dồn mẫu mới, KHÔNG trừ.<br>*Adds new sample, NO subtraction.*                  |     `0`     | Giữ nguyên<br>*Holds state*          |
+| **Ổn định**<br>*Steady State*<br>*(Từ mẫu 4)*      |   `1`   |    `1`     |  `4`<br>*(Bão hòa)*     | `sum_q + mẫu_mới - mẫu_cũ_nhất`<br>*Adds new sample, subtracts oldest sample.*      |     `1`     | `sum_q >> 2`<br>*(Làm tròn xuống)*   |
+
+---
+
+## 2. Bảng Đặc tả Giao diện / Interface Table
+
+Giao diện lõi được thiết kế để thỏa mãn dư dả ngân sách 24 chân của Tiny Tapeout (ước tính chỉ dùng 18/24 chân).
+*The core interface is designed to comfortably meet the 24-pin budget of Tiny Tapeout (est. 18/24 pins).*
+
+| Tên tín hiệu<br>*Signal Name* | Chiều<br>*Dir* | Rộng<br>*Width* | Tích cực<br>*Active*   | Chức năng & Giả định<br>*Function & Assumptions*                                                                 |
+|-------------------------------|:--------------:|:---------------:|:----------------------:|------------------------------------------------------------------------------------------------------------------|
+| `clk`                         |       In       |      1 bit      | Cạnh Lên<br>*Rising*   | Xung nhịp hệ thống.<br>*System Clock.*                                                                           |
+| `rst_n`                       |       In       |      1 bit      | Thấp<br>*Low (0)*      | Reset đồng bộ trạng thái.<br>*Synchronous state reset.*                                                          |
+| `valid_in`                    |       In       |      1 bit      | Cao<br>*High (1)*      | Báo hiệu ngõ vào hợp lệ.<br>*Signals valid input data.*                                                          |
+| `sample_in[7:0]`              |       In       |      8 bit      | Cao<br>*High*          | Dữ liệu mẫu (Không dấu). Giả định: Từ ADC.<br>*Unsigned sample data. Assumption: From ADC.*                      |
+| `valid_out`                   |       Out      |      1 bit      | Cao<br>*High (1)*      | Báo hiệu ngõ ra hợp lệ.<br>*Signals valid output result.*                                                        |
+| `avg_out[7:0]`                |       Out      |      8 bit      | Cao<br>*High*          | Kết quả trung bình trượt.<br>*Moving average result.*                                                            |
+
+---
+
+## 3. Kế hoạch Kiểm thử & Ca Biên / Verification Plan & Corner Cases
+
+Kỹ sư Kiểm chứng (Verification Engineer) cần xây dựng Testbench bao phủ toàn bộ các ca dưới đây trước khi xác nhận RTL hoàn thiện.
+*The Verification Engineer must build a Testbench covering all the cases below before signing off the RTL.*
+
+| ID          | Tên Ca<br>*Case Name*              | Loại<br>*Type*           | Mục tiêu & Dữ liệu Biên dự kiến<br>*Verification Target & Expected Edge Data*                                                                         |
+|-------------|------------------------------------|:------------------------:|-------------------------------------------------------------------------------------------------------------------------------------------------------|
+| **CC-1**    | Chuỗi hằng số<br>*Constant*        | Charter (Bắt buộc)       | Xác nhận độ lợi DC = 1.<br>*Confirms DC gain = 1.*                                                                                                    |
+| **CC-2**    | Bước nhảy<br>*Step*                | Charter (Bắt buộc)       | Khẳng định cửa sổ trượt từng mẫu (Sliding), không trượt theo khối.<br>*Asserts sliding window vs block average.*                                      |
+| **CC-3**    | Chuỗi tăng<br>*Ramp*               | Charter (Bắt buộc)       | Kiểm tra logic bộ đếm vòng (circular pointer).<br>*Checks circular pointer logic.*                                                                    |
+| **CC-4**    | Khởi động<br>*Incomplete*          | Charter (Bắt buộc)       | Kiểm tra cờ bảo vệ `valid_out=0` khi cửa sổ chưa đầy.<br>*Checks protective flag during window fill.*                                                 |
+| **CA-TX-1** | Bước nhảy Max<br>*Max Step*        | Tự xây dựng (Biên)       | **Input:** `0, 0, 0, 255, 255...`<br>Mục tiêu: Đảm bảo thanh ghi `sum_q` chạm đỉnh 1020 không tràn.<br>*Target: Ensure `sum_q` hits 1020 without overflow.*|
+| **CA-TX-2** | Xung đơn Max<br>*Max Impulse*      | Tự xây dựng (Biên)       | **Input:** `0, 0, 0, 255, 0, 0...`<br>Mục tiêu: Bắt sai số làm tròn tối đa 0.75 (kỳ vọng 4 giá trị `63` liên tiếp).<br>*Target: Catch max rounding error.*|
+
+---
+
+## 4. Mục tiêu Thiết kế & Ràng buộc / Design Targets & Constraints
+
+Bảng dưới đây định nghĩa các ràng buộc mà giai đoạn Hiện thực (Implementation) và Tổng hợp (Synthesis) phải hướng tới trên thư viện đích (`sky130_fd_sc_hd`).
+*The table below defines the constraints that the Implementation and Synthesis phases must target on the standard cell library.*
+
+| Hạng mục<br>*Category*         | Mục tiêu / Ràng buộc<br>*Target / Constraint*  | Ghi chú & Phương hướng thiết kế<br>*Notes & Design Direction*                                                                                                                                              |
+|--------------------------------|-----------------------------------------------:|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| **Quy mô & Diện tích**<br>*Scale & Area* |                   `~ 200 - 280 Cells`  | **Mục tiêu:** Phải nằm gọn trong 1 ô 1x1 của Tiny Tapeout.<br>*Target: Must fit within a 1x1 Tiny Tapeout tile.*                                                                                           |
+| **Tài nguyên Bộ nhớ**<br>*Memory*        | `Tuần tự (Sequential)`<br>`> 32 Flip-flops`| **Ràng buộc:** Cần ít nhất 32 FF để lưu 4 mẫu (8-bit) của cửa sổ trượt, cộng thêm FF dự phòng cho bộ tích lũy (`sum_q`), con trỏ và logic điều khiển.<br>*Constraint: Min 32 FFs for data window.*         |
+| **Ràng buộc Thời gian**<br>*Timing*      |        Chu kỳ: `10.0 ns`<br>I/O: `1.0 ns`  | **Mục tiêu:** Mạch RTL sau khi tổng hợp phải đạt Slack dương (Timing MET) dưới các giả định timing này (PVT: Typical, 25°C, 1.80V).<br>*Target: RTL must achieve positive slack under these assumptions.*      |
+| **Kiến trúc Thuật toán**<br>*Architecture*|             `Bộ tích lũy trượt`<br>*Sliding Accumulator*| **Đề xuất:** Ưu tiên dùng kiến trúc "Cộng mẫu mới, trừ mẫu cũ" để giới hạn số lượng bộ cộng tổ hợp thay vì cộng thẳng 4 giá trị cùng lúc.<br>*Direction: Prioritize "Add new, subtract old" architecture.* |
