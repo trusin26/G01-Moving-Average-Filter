@@ -1,4 +1,6 @@
+
 name: GDS
+
 on:
   push:
     branches:
@@ -7,27 +9,15 @@ on:
 
 jobs:
   gds:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
+
     steps:
       - name: Checkout repo
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
         with:
-          submodules: true
-
-      - name: Setup Python
-        uses: actions/setup-python@v5
-        with:
-          python-version: '3.11'
+          submodules: recursive
 
       - name: Build GDS
-        uses: tinytapeout/tt-gds-action@main
+        uses: TinyTapeout/tt-gds-action@ttsky26d
         with:
-          cli_version: "tt_cli==0.11.1"
-
-      - name: Save artifacts
-        uses: actions/upload-artifact@v4
-        with:
-          name: gds-artifacts
-          path: |
-            runs/wokwi/
-            !runs/wokwi/tmp
+          pdk: sky130A
