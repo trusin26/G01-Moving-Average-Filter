@@ -1,0 +1,13 @@
+# G01 · Tầng 05 — Kiểm chứng / Verification
+
+## 1. Cấu trúc Thư mục / Directory Structure
+
+Thư mục này chứa môi trường kiểm chứng, bao gồm mô hình chuẩn (Golden Model), Testbench và các đặc tính xác minh hình thức (Formal Properties).
+*This directory contains the verification environment, including the Golden Model, Testbench, and Formal Properties.*
+
+```text
+05_VERIFICATION/
+├── golden_model/      bounds.py, reference_model.py
+├── testbench/         g01_tb.sv, properties.sv
+├── waveforms/         (trống / empty)
+└── README.md
