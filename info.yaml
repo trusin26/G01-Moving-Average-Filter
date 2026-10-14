@@ -1,5 +1,38 @@
+
+yaml_version: 6
+
 project:
-  source_files:
-    - tt_um_g01_moving_average4.sv
-    - g01_moving_average4.sv
-  top_module:  "tt_um_g01_moving_average4"
+  title: "G01 Moving Average Filter"
+  author: "trusin26"
+  description: "4-point moving average filter using a sliding accumulator and circular buffer"
+  language: "Verilog"
+  clock_hz: 50000000
+  tiles: "1x1"
+
+pinout:
+  ui[0]: "Sample input bit 0"
+  ui[1]: "Sample input bit 1"
+  ui[2]: "Sample input bit 2"
+  ui[3]: "Sample input bit 3"
+  ui[4]: "Sample input bit 4"
+  ui[5]: "Sample input bit 5"
+  ui[6]: "Sample input bit 6"
+  ui[7]: "Sample input bit 7"
+
+  uo[0]: "Average output bit 0"
+  uo[1]: "Average output bit 1"
+  uo[2]: "Average output bit 2"
+  uo[3]: "Average output bit 3"
+  uo[4]: "Average output bit 4"
+  uo[5]: "Average output bit 5"
+  uo[6]: "Average output bit 6"
+  uo[7]: "Average output bit 7"
+
+  uio[0]: "valid_in (input)"
+  uio[1]: "valid_out (output)"
+  uio[2]: ""
+  uio[3]: ""
+  uio[4]: ""
+  uio[5]: ""
+  uio[6]: ""
+  uio[7]: ""
