@@ -20,7 +20,7 @@ jobs:
           python-version: '3.11'
 
       - name: Build GDS
-        uses: tinytapeout/tt-gds-action@v3
+        uses: tinytapeout/tt-gds-action@main
         with:
           cli_version: "tt_cli==0.11.1"
 
