@@ -10,8 +10,8 @@ project:
   tiles: "1x1"
   top_module: "tt_um_g01_moving_average4"
   source_files:
-    - "src/g01_moving_average4.sv"
-    - "src/tt_um_g01_moving_average4.sv"
+    - "g01_moving_average4.sv"
+    - "tt_um_g01_moving_average4.sv"
 
 pinout:
   ui[0]: "Sample input bit 0"
