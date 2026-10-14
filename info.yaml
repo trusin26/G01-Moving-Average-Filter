@@ -8,6 +8,10 @@ project:
   language: "Verilog"
   clock_hz: 50000000
   tiles: "1x1"
+  top_module: "tt_um_g01_moving_average4"
+  source_files:
+    - "src/g01_moving_average4.sv"
+    - "src/tt_um_g01_moving_average4.sv"
 
 pinout:
   ui[0]: "Sample input bit 0"
@@ -28,8 +32,8 @@ pinout:
   uo[6]: "Average output bit 6"
   uo[7]: "Average output bit 7"
 
-  uio[0]: "valid_in (input)"
-  uio[1]: "valid_out (output)"
+  uio[0]: "valid_in"
+  uio[1]: "valid_out"
   uio[2]: ""
   uio[3]: ""
   uio[4]: ""
