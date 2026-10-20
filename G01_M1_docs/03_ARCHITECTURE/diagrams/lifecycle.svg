@@ -1,0 +1,79 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 440" width="1280" height="440" font-family="'DejaVu Sans', Arial, sans-serif">
+  <defs>
+    <marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10z" fill="#222"/></marker>
+    <marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10z" fill="#B03A2E"/></marker>
+    <style>
+      .bx { fill:#DCEBFA; stroke:#2B5C8A; stroke-width:2; }
+      .bf { fill:#FDE8CC; stroke:#B26A00; stroke-width:2; }
+      .bo { fill:#E4F3E1; stroke:#3C7A3C; stroke-width:2; }
+      .w  { stroke:#222; stroke-width:2.2; fill:none; marker-end:url(#a); }
+      .wr { stroke:#B03A2E; stroke-width:1.8; stroke-dasharray:6 4; fill:none; marker-end:url(#ar); }
+      .b  { font-size:13px; font-weight:bold; fill:#111; }
+      .t  { font-size:11px; fill:#222; }
+      .s  { font-size:11px; fill:#555; }
+      .m  { font-size:12px; font-weight:bold; fill:#2B5C8A; }
+      .r  { font-size:11px; fill:#B03A2E; }
+    </style>
+  </defs>
+  <rect width="1280" height="440" fill="#ffffff"/>
+  <text x="20" y="26" class="b" style="font-size:16px">G01 · Vòng đời thiết kế: từ yêu cầu đến báo cáo (kèm bằng chứng ở mỗi bước)</text>
+
+  <!-- milestone brackets -->
+  <path d="M20 100 H469" stroke="#2B5C8A" stroke-width="3"/><text x="20" y="92" class="m">M1 · Đặc tả</text>
+  <path d="M491 100 H783" stroke="#2B5C8A" stroke-width="3"/><text x="491" y="92" class="m">M2 · RTL + kiểm chứng</text>
+  <path d="M805 100 H1097" stroke="#B26A00" stroke-width="3"/><text x="805" y="92" class="m" style="fill:#B26A00">M3–M4 · Chạy flow, đọc báo cáo</text>
+  <path d="M1119 100 H1254" stroke="#3C7A3C" stroke-width="3"/><text x="1119" y="92" class="m" style="fill:#3C7A3C">M5 · Nộp</text>
+
+  <!-- boxes -->
+  <rect x="20"   y="120" width="135" height="130" rx="6" class="bx"/>
+  <rect x="177"  y="120" width="135" height="130" rx="6" class="bx"/>
+  <rect x="334"  y="120" width="135" height="130" rx="6" class="bx"/>
+  <rect x="491"  y="120" width="135" height="130" rx="6" class="bx"/>
+  <rect x="648"  y="120" width="135" height="130" rx="6" class="bx"/>
+  <rect x="805"  y="120" width="135" height="130" rx="6" class="bf"/>
+  <rect x="962"  y="120" width="135" height="130" rx="6" class="bf"/>
+  <rect x="1119" y="120" width="135" height="130" rx="6" class="bo"/>
+
+  <!-- titles -->
+  <text x="87"   y="146" text-anchor="middle" class="b">1 · Yêu cầu</text>
+  <text x="244"  y="146" text-anchor="middle" class="b">2 · Đặc tả</text>
+  <text x="401"  y="146" text-anchor="middle" class="b">3 · Kiến trúc</text>
+  <text x="558"  y="146" text-anchor="middle" class="b">4 · RTL + TB</text>
+  <text x="715"  y="146" text-anchor="middle" class="b">5 · Mô phỏng</text>
+  <text x="872"  y="146" text-anchor="middle" class="b">6 · Tổng hợp</text>
+  <text x="1029" y="146" text-anchor="middle" class="b">7 · Layout</text>
+  <text x="1186" y="146" text-anchor="middle" class="b">8 · Báo cáo</text>
+  <text x="872"  y="162" text-anchor="middle" class="s">Yosys + STA</text>
+  <text x="1029" y="162" text-anchor="middle" class="s">LibreLane + DRC/LVS</text>
+  <text x="1186" y="162" text-anchor="middle" class="s">+ vấn đáp</text>
+
+  <!-- evidence -->
+  <text x="87"   y="196" text-anchor="middle" class="t">requirements.md</text><text x="87"   y="214" text-anchor="middle" class="s">REQ-G01-001…024</text>
+  <text x="244"  y="196" text-anchor="middle" class="t">spec.md</text><text x="244"  y="214" text-anchor="middle" class="s">giao diện + hành vi</text>
+  <text x="401"  y="196" text-anchor="middle" class="t">architecture.md</text><text x="401"  y="214" text-anchor="middle" class="s">sơ đồ khối + FSM</text>
+  <text x="558"  y="196" text-anchor="middle" class="t">rtl/*.sv, tb/*.sv</text><text x="558"  y="214" text-anchor="middle" class="s">assertion + mô hình</text>
+  <text x="715"  y="196" text-anchor="middle" class="t">simulation.log</text><text x="715"  y="214" text-anchor="middle" class="s">waveform chú thích</text>
+  <text x="872"  y="196" text-anchor="middle" class="t">synth_stat.txt</text><text x="872"  y="214" text-anchor="middle" class="s">báo cáo STA</text>
+  <text x="1029" y="196" text-anchor="middle" class="t">GDSII, metrics.json</text><text x="1029" y="214" text-anchor="middle" class="s">DRC / LVS / công suất</text>
+  <text x="1186" y="196" text-anchor="middle" class="t">PDF 8–15 trang</text><text x="1186" y="214" text-anchor="middle" class="s">RTM-lite + Phụ lục A</text>
+  <text x="87"   y="238" text-anchor="middle" class="s">⬆ bằng chứng</text>
+  <text x="244"  y="238" text-anchor="middle" class="s">⬆ bằng chứng</text>
+  <text x="401"  y="238" text-anchor="middle" class="s">⬆ bằng chứng</text>
+  <text x="558"  y="238" text-anchor="middle" class="s">⬆ bằng chứng</text>
+  <text x="715"  y="238" text-anchor="middle" class="s">⬆ bằng chứng</text>
+  <text x="872"  y="238" text-anchor="middle" class="s">⬆ bằng chứng</text>
+  <text x="1029" y="238" text-anchor="middle" class="s">⬆ bằng chứng</text>
+  <text x="1186" y="238" text-anchor="middle" class="s">⬆ bằng chứng</text>
+
+  <!-- forward arrows -->
+  <path d="M155 185 H177" class="w"/><path d="M312 185 H334" class="w"/><path d="M469 185 H491" class="w"/>
+  <path d="M626 185 H648" class="w"/><path d="M783 185 H805" class="w"/><path d="M940 185 H962" class="w"/><path d="M1097 185 H1119" class="w"/>
+
+  <!-- feedback arrows -->
+  <path d="M715 250 V288 H558 V250" class="wr"/>
+  <text x="636" y="306" text-anchor="middle" class="r">FAIL → sửa RTL / TB, chạy lại</text>
+  <path d="M1029 250 V345 H520 V250" class="wr"/>
+  <text x="780" y="364" text-anchor="middle" class="r">Flow lỗi → chẩn đoán đúng tầng (mục 9 phiếu), sửa rồi chạy lại</text>
+
+  <text x="20" y="410" class="t">Một bước chỉ tính là xong khi có file bằng chứng kèm lệnh tái lập. Số liệu chỉ dùng số tự chạy trong repo của mình (có SHA commit và link CI run).</text>
+</svg>

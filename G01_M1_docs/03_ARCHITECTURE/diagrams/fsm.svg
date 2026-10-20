@@ -1,0 +1,69 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1180 470" width="1180" height="470" font-family="'DejaVu Sans', Arial, sans-serif">
+  <defs>
+    <marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10z" fill="#222"/></marker>
+    <marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10z" fill="#B03A2E"/></marker>
+    <marker id="ad" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10z" fill="#3C7A3C"/></marker>
+    <style>
+      .st { fill:#DCEBFA; stroke:#2B5C8A; stroke-width:2.2; }
+      .sf { fill:#FDE8CC; stroke:#B26A00; stroke-width:2.2; }
+      .w  { stroke:#222; stroke-width:2.2; fill:none; marker-end:url(#a); }
+      .wr { stroke:#B03A2E; stroke-width:2.8; fill:none; marker-end:url(#ar); }
+      .wd { stroke:#3C7A3C; stroke-width:1.8; stroke-dasharray:6 4; fill:none; marker-end:url(#ad); }
+      .b  { font-size:14px; font-weight:bold; fill:#111; }
+      .t  { font-size:12px; fill:#111; }
+      .s  { font-size:11px; fill:#444; }
+      .r  { font-size:12px; font-weight:bold; fill:#B03A2E; }
+    </style>
+  </defs>
+  <rect width="1180" height="470" fill="#ffffff"/>
+  <text x="20" y="26" class="b" style="font-size:16px">G01 · Sơ đồ trạng thái ngầm của bộ đếm count_q (5 trạng thái)</text>
+
+  <!-- reset -->
+  <rect x="20" y="52" width="180" height="40" rx="6" fill="#E4F3E1" stroke="#3C7A3C" stroke-width="2"/>
+  <text x="110" y="70" text-anchor="middle" class="b">rst_n = 0</text>
+  <text x="110" y="85" text-anchor="middle" class="s">(đồng bộ, từ mọi trạng thái)</text>
+  <path d="M110 92 V190" class="wd"/>
+  <text x="122" y="140" class="s">xoá mem, sum_q, wr_ptr,</text>
+  <text x="122" y="154" class="s">valid_out, avg_out</text>
+
+  <!-- states -->
+  <circle cx="110" cy="240" r="50" class="st"/><text x="110" y="238" text-anchor="middle" class="b">S0</text><text x="110" y="256" text-anchor="middle" class="s">count_q=0</text>
+  <circle cx="340" cy="240" r="50" class="st"/><text x="340" y="238" text-anchor="middle" class="b">S1</text><text x="340" y="256" text-anchor="middle" class="s">count_q=1</text>
+  <circle cx="570" cy="240" r="50" class="st"/><text x="570" y="238" text-anchor="middle" class="b">S2</text><text x="570" y="256" text-anchor="middle" class="s">count_q=2</text>
+  <circle cx="800" cy="240" r="50" class="st"/><text x="800" y="238" text-anchor="middle" class="b">S3</text><text x="800" y="256" text-anchor="middle" class="s">count_q=3</text>
+  <circle cx="1030" cy="240" r="50" class="sf"/><text x="1030" y="238" text-anchor="middle" class="b">S4</text><text x="1030" y="256" text-anchor="middle" class="s">count_q=4</text>
+
+  <!-- captions under states -->
+  <text x="110" y="316" text-anchor="middle" class="s">rỗng (0 mẫu)</text>
+  <text x="340" y="316" text-anchor="middle" class="s">1 mẫu</text>
+  <text x="570" y="316" text-anchor="middle" class="s">2 mẫu</text>
+  <text x="800" y="316" text-anchor="middle" class="s">3 mẫu</text>
+  <text x="1030" y="316" text-anchor="middle" class="s">đủ 4 mẫu (bão hoà)</text>
+
+  <!-- transitions S0..S3 -->
+  <path d="M160 240 H290" class="w"/>
+  <text x="225" y="206" text-anchor="middle" class="t">valid_in = 1</text><text x="225" y="221" text-anchor="middle" class="s">sum += x</text><text x="225" y="260" text-anchor="middle" class="s">valid_out = 0</text>
+  <path d="M390 240 H520" class="w"/>
+  <text x="455" y="206" text-anchor="middle" class="t">valid_in = 1</text><text x="455" y="221" text-anchor="middle" class="s">sum += x</text><text x="455" y="260" text-anchor="middle" class="s">valid_out = 0</text>
+  <path d="M620 240 H750" class="w"/>
+  <text x="685" y="206" text-anchor="middle" class="t">valid_in = 1</text><text x="685" y="221" text-anchor="middle" class="s">sum += x</text><text x="685" y="260" text-anchor="middle" class="s">valid_out = 0</text>
+
+  <!-- S3 -> S4 highlighted: mẫu thứ 4 -->
+  <path d="M850 240 H980" class="wr"/>
+  <text x="915" y="190" text-anchor="middle" class="r">mẫu thứ 4</text>
+  <text x="915" y="206" text-anchor="middle" class="t">valid_in = 1</text><text x="915" y="221" text-anchor="middle" class="s">sum += x (chưa trừ)</text><text x="915" y="260" text-anchor="middle" class="r">valid_out = 1</text>
+  <text x="915" y="275" text-anchor="middle" class="s">avg = sum_next &gt;&gt; 2</text>
+
+  <!-- S4 self loop -->
+  <path d="M1000 198 C985 120 1075 120 1060 198" class="w"/>
+  <text x="1030" y="92" text-anchor="middle" class="t">valid_in = 1</text>
+  <text x="1030" y="107" text-anchor="middle" class="s">sum += x − mẫu cũ nhất</text>
+  <text x="1030" y="122" text-anchor="middle" class="r">valid_out = 1</text>
+
+  <!-- notes -->
+  <rect x="20" y="350" width="1140" height="100" rx="6" fill="#F7F7F7" stroke="#AAA"/>
+  <text x="36" y="376" class="t">• Ở mọi trạng thái: valid_in = 0 → giữ nguyên trạng thái, sample_mem và sum_q không đổi, valid_out ← 0, avg_out giữ giá trị cũ.</text>
+  <text x="36" y="398" class="t">• Mã hoá trạng thái: count_q là số nhị phân 3 bit (000…100). Các mã 101, 110, 111 không bao giờ xuất hiện sau reset.</text>
+  <text x="36" y="420" class="t">• Chuyển S3 → S4 (mũi tên đỏ) là chỗ dễ sai nhất: đã có kết quả hợp lệ nhưng chưa trừ mẫu cũ; từ mẫu thứ 5 mới vừa cộng vừa trừ.</text>
+  <text x="36" y="442" class="t">• Mạch không có kiểu enum/case; count_q đóng vai trò thanh ghi trạng thái nên vẫn được xem là FSM ngầm.</text>
+</svg>
