@@ -1,2 +1,2 @@
 *.vcd
-*.vvp
+*.vvp*:Zone.Identifier
