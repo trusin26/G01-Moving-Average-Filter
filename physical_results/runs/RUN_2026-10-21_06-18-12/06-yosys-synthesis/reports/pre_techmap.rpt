@@ -1,0 +1,43 @@
+131. Printing statistics.
+
+=== g01_moving_average4 ===
+
+        +----------Local Count, excluding submodules.
+        | 
+      191 wires
+      275 wire bits
+       14 public wires
+       75 public wire bits
+        6 ports
+       20 port bits
+      244 cells
+       41   $_ANDNOT_
+       10   $_AND_
+        8   $_DFFE_PP_
+       35   $_MUX_
+       10   $_NAND_
+       18   $_NOR_
+       16   $_NOT_
+        3   $_ORNOT_
+       15   $_OR_
+       24   $_SDFFCE_PN0P_
+       23   $_SDFFE_PN0P_
+        3   $_SDFF_PN0_
+       12   $_XNOR_
+       26   $_XOR_
+
+   Area for cell type $_ANDNOT_ is unknown!
+   Area for cell type $_AND_ is unknown!
+   Area for cell type $_DFFE_PP_ is unknown!
+   Area for cell type $_MUX_ is unknown!
+   Area for cell type $_NAND_ is unknown!
+   Area for cell type $_NOR_ is unknown!
+   Area for cell type $_NOT_ is unknown!
+   Area for cell type $_ORNOT_ is unknown!
+   Area for cell type $_OR_ is unknown!
+   Area for cell type $_SDFFCE_PN0P_ is unknown!
+   Area for cell type $_SDFFE_PN0P_ is unknown!
+   Area for cell type $_SDFF_PN0_ is unknown!
+   Area for cell type $_XNOR_ is unknown!
+   Area for cell type $_XOR_ is unknown!
+

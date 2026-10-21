@@ -1,0 +1,145 @@
+name: rtl2gds
+
+# CI cua de G01 (bo loc trung binh truot 4 diem).
+# Hai job doc lap:
+#   sim  : lint (Verilator) + mo phong (Icarus) + mo hinh Python. Bang chung chuc nang.
+#   flow : LibreLane RTL-to-GDSII tren sky130A (chay trong Docker). Bang chung vat ly.
+# Ca hai job luon upload artifacts (ke ca khi loi) de co log chan doan.
+
+on:
+  push:
+    branches: [ main ]
+  workflow_dispatch:
+
+defaults:
+  run:
+    shell: bash        # bash co pipefail: loi o dau ong dan khong bi 'tee' che mat
+
+env:
+  DESIGN_NAME: g01_moving_average4     # <-- ten module TOP (phai khop RTL va config.json)
+  CONFIG: config.json                  # <-- file cau hinh LibreLane o goc repo
+  LIBRELANE_VERSION: "3.0.16"          # <-- ghim phien ban de tai lap; ghi vao Phu luc A
+
+jobs:
+  # ------------------------------------------------------------------
+  sim:
+    name: Lint + mo phong
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Cai iverilog va verilator
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y iverilog verilator
+
+      - name: Ghi phien ban cong cu
+        run: |
+          mkdir -p ci_out/sim
+          { iverilog -V 2>&1 | head -1; verilator --version; } > ci_out/tool_versions.txt || true
+          cat ci_out/tool_versions.txt
+
+      - name: Lint bang Verilator (ghi lai canh bao, khong chan)
+        run: |
+          verilator --lint-only -Wall "rtl/${DESIGN_NAME}.sv" 2>&1 | tee ci_out/lint.log || true
+
+      - name: Mo hinh Python doc lap
+        run: python3 tb/golden_model.py | tee ci_out/golden_model.log
+
+      - name: Mo phong (Icarus Verilog)
+        run: |
+          iverilog -g2012 -o ci_out/sim.vvp \
+            rtl/g01_direct_sum_reference.sv rtl/g01_moving_average4.sv tb/*.sv
+          (cd ci_out/sim && vvp ../sim.vvp | tee simulation.log)
+
+      - name: Kiem ket qua mo phong (khong tin ma thoat cua vvp)
+        run: |
+          cd ci_out/sim
+          if grep -qiE "fatal|mismatch|error" simulation.log; then
+            echo "::error::Mo phong FAIL (log co fatal/mismatch/error)"; cat simulation.log; exit 1
+          fi
+          grep -q "G01 TB completed" simulation.log \
+            || { echo "::error::Testbench khong chay toi cuoi"; cat simulation.log; exit 1; }
+          echo "Mo phong: PASS (co 'G01 TB completed', khong co fatal/mismatch/error)"
+
+      - name: Upload artifacts mo phong
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: sim-evidence
+          path: ci_out/
+          retention-days: 30
+
+  # ------------------------------------------------------------------
+  flow:
+    name: LibreLane RTL-to-GDSII
+    runs-on: ubuntu-24.04
+    timeout-minutes: 90
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Cache PDK (ciel)
+        uses: actions/cache@v4
+        with:
+          path: ~/.ciel
+          key: ciel-sky130A-${{ env.LIBRELANE_VERSION }}
+
+      - name: Cai LibreLane
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y python3-tk
+          python3 -m pip install --upgrade pip
+          python3 -m pip install "librelane==${LIBRELANE_VERSION}"
+          { echo "librelane ${LIBRELANE_VERSION} (pip)"; docker --version; } | tee librelane_version.txt
+
+      - name: Chay flow LibreLane (Docker)
+        run: |
+          python3 -m librelane --dockerized "${CONFIG}" 2>&1 | tee librelane_run.log
+
+      - name: Thu thap bang chung va viet tom tat
+        if: always()
+        run: |
+          sudo chown -R "$(id -u):$(id -g)" runs 2>/dev/null || true
+          GDS=$(find runs -name '*.gds' 2>/dev/null | head -1 || true)
+          MET=$(find runs -path '*final*' -name metrics.json 2>/dev/null | head -1 || true)
+          STAT=$(find runs -path '*yosys*' -name 'stat*.rpt' 2>/dev/null | head -1 || true)
+          {
+            echo "## Phu luc A - thong tin tai lap"
+            echo "- Repo: ${GITHUB_REPOSITORY}"
+            echo "- Commit: ${GITHUB_SHA}"
+            echo "- CI run: ${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}/actions/runs/${GITHUB_RUN_ID}"
+            echo "- Ngay chay (UTC): $(date -u '+%Y-%m-%d %H:%M:%S')"
+            echo "- $(head -1 librelane_version.txt)"
+            echo "- PDK: sky130A (thu muc ciel: $(ls ~/.ciel 2>/dev/null | tr '\n' ' '))"
+            echo "- File GDS: ${GDS:-KHONG CO}"
+            echo "- metrics.json: ${MET:-KHONG CO}"
+            echo
+          } >> "$GITHUB_STEP_SUMMARY"
+          if [ -n "$MET" ]; then
+            python3 .github/doc_metrics.py "$MET" --md | tee metrics_summary.md >> "$GITHUB_STEP_SUMMARY"
+          fi
+          if [ -n "$STAT" ]; then
+            echo "===== $STAT ====="; tail -n 60 "$STAT"
+          fi
+          if [ -z "$GDS" ] || [ -z "$MET" ]; then
+            echo "::error::Flow CHUA XONG: thieu file .gds hoac metrics.json (xem librelane_run.log, tim dong ERROR dau tien)"
+            exit 1
+          fi
+
+      - name: Upload artifacts flow
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: librelane-run
+          path: |
+            runs/
+            librelane_run.log
+            librelane_version.txt
+            metrics_summary.md
+            config.json
+            constraints/
+          retention-days: 30

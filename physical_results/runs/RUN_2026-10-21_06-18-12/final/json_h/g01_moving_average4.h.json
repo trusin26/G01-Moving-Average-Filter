@@ -1,0 +1,1448 @@
+{
+  "creator": "Yosys 0.62 (git sha1 7326bb7d6641500ecb285c291a54a662cb1e76cf, clang++ 21.1.2 -fPIC -O3)",
+  "modules": {
+    "g01_moving_average4": {
+      "attributes": {
+        "hdlname": "g01_moving_average4",
+        "dynports": "00000000000000000000000000000001",
+        "top": "00000000000000000000000000000001",
+        "src": "/home/runner/work/G01-Moving-Average-Filter/G01-Moving-Average-Filter/rtl/g01_moving_average4.sv:1.1-64.10"
+      },
+      "parameter_default_values": {
+        "W": "00000000000000000000000000001000"
+      },
+      "ports": {
+        "clk": {
+          "direction": "input",
+          "bits": [ 2 ]
+        },
+        "rst_n": {
+          "direction": "input",
+          "bits": [ 3 ]
+        },
+        "valid_in": {
+          "direction": "input",
+          "bits": [ 4 ]
+        },
+        "sample_in": {
+          "direction": "input",
+          "bits": [ 5, 6, 7, 8, 9, 10, 11, 12 ]
+        },
+        "valid_out": {
+          "direction": "output",
+          "bits": [ 13 ]
+        },
+        "avg_out": {
+          "direction": "output",
+          "bits": [ 14, 15, 16, 17, 18, 19, 20, 21 ]
+        }
+      },
+      "cells": {
+        "$add$/home/runner/work/G01-Moving-Average-Filter/G01-Moving-Average-Filter/rtl/g01_moving_average4.sv:28$9": {
+          "hide_name": 1,
+          "type": "$add",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000001010",
+            "B_SIGNED": "00000000000000000000000000000000",
+            "B_WIDTH": "00000000000000000000000000001010",
+            "Y_WIDTH": "00000000000000000000000000001010"
+          },
+          "attributes": {
+            "src": "/home/runner/work/G01-Moving-Average-Filter/G01-Moving-Average-Filter/rtl/g01_moving_average4.sv:28.24-28.42"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 22, 23, 24, 25, 26, 27, 28, 29, 30, 31 ],
+            "B": [ 5, 6, 7, 8, 9, 10, 11, 12, "0", "0" ],
+            "Y": [ 32, 33, 34, 35, 36, 37, 38, 39, 40, 41 ]
+          }
+        },
+        "$add$/home/runner/work/G01-Moving-Average-Filter/G01-Moving-Average-Filter/rtl/g01_moving_average4.sv:30$10": {
+          "hide_name": 1,
+          "type": "$add",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000001010",
+            "B_SIGNED": "00000000000000000000000000000000",
+            "B_WIDTH": "00000000000000000000000000001010",
+            "Y_WIDTH": "00000000000000000000000000001010"
+          },
+          "attributes": {
+            "src": "/home/runner/work/G01-Moving-Average-Filter/G01-Moving-Average-Filter/rtl/g01_moving_average4.sv:30.24-30.42"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 22, 23, 24, 25, 26, 27, 28, 29, 30, 31 ],
+            "B": [ 5, 6, 7, 8, 9, 10, 11, 12, "0", "0" ],
+            "Y": [ 42, 43, 44, 45, 46, 47, 48, 49, 50, 51 ]
+          }
+        },
+        "$add$/home/runner/work/G01-Moving-Average-Filter/G01-Moving-Average-Filter/rtl/g01_moving_average4.sv:52$32": {
+          "hide_name": 1,
+          "type": "$add",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000000011",
+            "B_SIGNED": "00000000000000000000000000000000",
+            "B_WIDTH": "00000000000000000000000000000011",
+            "Y_WIDTH": "00000000000000000000000000000011"
+          },
+          "attributes": {
+            "src": "/home/runner/work/G01-Moving-Average-Filter/G01-Moving-Average-Filter/rtl/g01_moving_average4.sv:52.32-52.46"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 52, 53, 54 ],
+            "B": [ "1", "0", "0" ],
+            "Y": [ 55, 56, 57 ]
+          }
+        },
+        "$add$/home/runner/work/G01-Moving-Average-Filter/G01-Moving-Average-Filter/rtl/g01_moving_average4.sv:54$33": {
+          "hide_name": 1,
+          "type": "$add",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000000010",
+            "B_SIGNED": "00000000000000000000000000000000",
+            "B_WIDTH": "00000000000000000000000000000010",
+            "Y_WIDTH": "00000000000000000000000000000010"
+          },
+          "attributes": {
+            "src": "/home/runner/work/G01-Moving-Average-Filter/G01-Moving-Average-Filter/rtl/g01_moving_average4.sv:54.27-54.40"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 58, 59 ],
+            "B": [ "1", "0" ],
+            "Y": [ 60, 61 ]
+          }
+        },
+        "$auto$proc_memwr.cc:45:proc_memwr$126": {
+          "hide_name": 1,
+          "type": "$memwr_v2",
+          "parameters": {
+            "ABITS": "00000000000000000000000000100000",
+            "CLK_ENABLE": "1",
+            "CLK_POLARITY": "1",
+            "MEMID": "\\sample_mem",
+            "PORTID": "00000000000000000000000000000000",
+            "PRIORITY_MASK": "",
+            "WIDTH": "00000000000000000000000000001000"
+          },
+          "attributes": {
+            "src": "/home/runner/work/G01-Moving-Average-Filter/G01-Moving-Average-Filter/rtl/g01_moving_average4.sv:35.13-35.32"
+          },
+          "port_directions": {
+            "ADDR": "input",
+            "CLK": "input",
+            "DATA": "input",
+            "EN": "input"
+          },
+          "connections": {
+            "ADDR": [ "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0" ],
+            "CLK": [ 2 ],
+            "DATA": [ "0", "0", "0", "0", "0", "0", "0", "0" ],
+            "EN": [ 62, 63, 64, 65, 66, 67, 68, 69 ]
+          }
+        },
+        "$auto$proc_memwr.cc:45:proc_memwr$127": {
+          "hide_name": 1,
+          "type": "$memwr_v2",
+          "parameters": {
+            "ABITS": "00000000000000000000000000100000",
+            "CLK_ENABLE": "1",
+            "CLK_POLARITY": "1",
+            "MEMID": "\\sample_mem",
+            "PORTID": "00000000000000000000000000000001",
+            "PRIORITY_MASK": "1",
+            "WIDTH": "00000000000000000000000000001000"
+          },
+          "attributes": {
+            "src": "/home/runner/work/G01-Moving-Average-Filter/G01-Moving-Average-Filter/rtl/g01_moving_average4.sv:36.13-36.32"
+          },
+          "port_directions": {
+            "ADDR": "input",
+            "CLK": "input",
+            "DATA": "input",
+            "EN": "input"
+          },
+          "connections": {
+            "ADDR": [ "1", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0" ],
+            "CLK": [ 2 ],
+            "DATA": [ "0", "0", "0", "0", "0", "0", "0", "0" ],
+            "EN": [ 70, 71, 72, 73, 74, 75, 76, 77 ]
+          }
+        },
+        "$auto$proc_memwr.cc:45:proc_memwr$128": {
+          "hide_name": 1,
+          "type": "$memwr_v2",
+          "parameters": {
+            "ABITS": "00000000000000000000000000100000",
+            "CLK_ENABLE": "1",
+            "CLK_POLARITY": "1",
+            "MEMID": "\\sample_mem",
+            "PORTID": "00000000000000000000000000000010",
+            "PRIORITY_MASK": "11",
+            "WIDTH": "00000000000000000000000000001000"
+          },
+          "attributes": {
+            "src": "/home/runner/work/G01-Moving-Average-Filter/G01-Moving-Average-Filter/rtl/g01_moving_average4.sv:37.13-37.32"
+          },
+          "port_directions": {
+            "ADDR": "input",
+            "CLK": "input",
+            "DATA": "input",
+            "EN": "input"
+          },
+          "connections": {
+            "ADDR": [ "0", "1", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0" ],
+            "CLK": [ 2 ],
+            "DATA": [ "0", "0", "0", "0", "0", "0", "0", "0" ],
+            "EN": [ 78, 79, 80, 81, 82, 83, 84, 85 ]
+          }
+        },
+        "$auto$proc_memwr.cc:45:proc_memwr$129": {
+          "hide_name": 1,
+          "type": "$memwr_v2",
+          "parameters": {
+            "ABITS": "00000000000000000000000000100000",
+            "CLK_ENABLE": "1",
+            "CLK_POLARITY": "1",
+            "MEMID": "\\sample_mem",
+            "PORTID": "00000000000000000000000000000011",
+            "PRIORITY_MASK": "111",
+            "WIDTH": "00000000000000000000000000001000"
+          },
+          "attributes": {
+            "src": "/home/runner/work/G01-Moving-Average-Filter/G01-Moving-Average-Filter/rtl/g01_moving_average4.sv:38.13-38.32"
+          },
+          "port_directions": {
+            "ADDR": "input",
+            "CLK": "input",
+            "DATA": "input",
+            "EN": "input"
+          },
+          "connections": {
+            "ADDR": [ "1", "1", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0" ],
+            "CLK": [ 2 ],
+            "DATA": [ "0", "0", "0", "0", "0", "0", "0", "0" ],
+            "EN": [ 86, 87, 88, 89, 90, 91, 92, 93 ]
+          }
+        },
+        "$auto$proc_memwr.cc:45:proc_memwr$130": {
+          "hide_name": 1,
+          "type": "$memwr_v2",
+          "parameters": {
+            "ABITS": "00000000000000000000000000000010",
+            "CLK_ENABLE": "1",
+            "CLK_POLARITY": "1",
+            "MEMID": "\\sample_mem",
+            "PORTID": "00000000000000000000000000000100",
+            "PRIORITY_MASK": "0000",
+            "WIDTH": "00000000000000000000000000001000"
+          },
+          "attributes": {
+            "src": "/home/runner/work/G01-Moving-Average-Filter/G01-Moving-Average-Filter/rtl/g01_moving_average4.sv:48.17-48.48"
+          },
+          "port_directions": {
+            "ADDR": "input",
+            "CLK": "input",
+            "DATA": "input",
+            "EN": "input"
+          },
+          "connections": {
+            "ADDR": [ 94, 95 ],
+            "CLK": [ 2 ],
+            "DATA": [ 96, 97, 98, 99, 100, 101, 102, 103 ],
+            "EN": [ 104, 105, 106, 107, 108, 109, 110, 111 ]
+          }
+        },
+        "$ge$/home/runner/work/G01-Moving-Average-Filter/G01-Moving-Average-Filter/rtl/g01_moving_average4.sv:56$34": {
+          "hide_name": 1,
+          "type": "$ge",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000000011",
+            "B_SIGNED": "00000000000000000000000000000000",
+            "B_WIDTH": "00000000000000000000000000000011",
+            "Y_WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "src": "/home/runner/work/G01-Moving-Average-Filter/G01-Moving-Average-Filter/rtl/g01_moving_average4.sv:56.21-56.36"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 52, 53, 54 ],
+            "B": [ "1", "1", "0" ],
+            "Y": [ 112 ]
+          }
+        },
+        "$lt$/home/runner/work/G01-Moving-Average-Filter/G01-Moving-Average-Filter/rtl/g01_moving_average4.sv:27$8": {
+          "hide_name": 1,
+          "type": "$lt",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000000011",
+            "B_SIGNED": "00000000000000000000000000000000",
+            "B_WIDTH": "00000000000000000000000000000011",
+            "Y_WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "src": "/home/runner/work/G01-Moving-Average-Filter/G01-Moving-Average-Filter/rtl/g01_moving_average4.sv:27.13-27.27"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 52, 53, 54 ],
+            "B": [ "0", "0", "1" ],
+            "Y": [ 113 ]
+          }
+        },
+        "$lt$/home/runner/work/G01-Moving-Average-Filter/G01-Moving-Average-Filter/rtl/g01_moving_average4.sv:51$31": {
+          "hide_name": 1,
+          "type": "$lt",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000000011",
+            "B_SIGNED": "00000000000000000000000000000000",
+            "B_WIDTH": "00000000000000000000000000000011",
+            "Y_WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "src": "/home/runner/work/G01-Moving-Average-Filter/G01-Moving-Average-Filter/rtl/g01_moving_average4.sv:51.21-51.35"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 52, 53, 54 ],
+            "B": [ "0", "0", "1" ],
+            "Y": [ 114 ]
+          }
+        },
+        "$memrd$\\sample_mem$/home/runner/work/G01-Moving-Average-Filter/G01-Moving-Average-Filter/rtl/g01_moving_average4.sv:24$6": {
+          "hide_name": 1,
+          "type": "$memrd",
+          "parameters": {
+            "ABITS": "00000000000000000000000000000010",
+            "CLK_ENABLE": "00000000000000000000000000000000",
+            "CLK_POLARITY": "00000000000000000000000000000000",
+            "MEMID": "\\sample_mem",
+            "TRANSPARENT": "00000000000000000000000000000000",
+            "WIDTH": "00000000000000000000000000001000"
+          },
+          "attributes": {
+            "src": "/home/runner/work/G01-Moving-Average-Filter/G01-Moving-Average-Filter/rtl/g01_moving_average4.sv:24.45-24.55"
+          },
+          "port_directions": {
+            "ADDR": "input",
+            "CLK": "input",
+            "DATA": "output",
+            "EN": "input"
+          },
+          "connections": {
+            "ADDR": [ 58, 59 ],
+            "CLK": [ "x" ],
+            "DATA": [ 115, 116, 117, 118, 119, 120, 121, 122 ],
+            "EN": [ "x" ]
+          }
+        },
+        "$procdff$114": {
+          "hide_name": 1,
+          "type": "$dff",
+          "parameters": {
+            "CLK_POLARITY": "1",
+            "WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "always_ff": "00000000000000000000000000000001",
+            "src": "/home/runner/work/G01-Moving-Average-Filter/G01-Moving-Average-Filter/rtl/g01_moving_average4.sv:33.5-62.8"
+          },
+          "port_directions": {
+            "CLK": "input",
+            "D": "input",
+            "Q": "output"
+          },
+          "connections": {
+            "CLK": [ 2 ],
+            "D": [ 123 ],
+            "Q": [ 13 ]
+          }
+        },
+        "$procdff$115": {
+          "hide_name": 1,
+          "type": "$dff",
+          "parameters": {
+            "CLK_POLARITY": "1",
+            "WIDTH": "00000000000000000000000000001000"
+          },
+          "attributes": {
+            "always_ff": "00000000000000000000000000000001",
+            "src": "/home/runner/work/G01-Moving-Average-Filter/G01-Moving-Average-Filter/rtl/g01_moving_average4.sv:33.5-62.8"
+          },
+          "port_directions": {
+            "CLK": "input",
+            "D": "input",
+            "Q": "output"
+          },
+          "connections": {
+            "CLK": [ 2 ],
+            "D": [ 124, 125, 126, 127, 128, 129, 130, 131 ],
+            "Q": [ 14, 15, 16, 17, 18, 19, 20, 21 ]
+          }
+        },
+        "$procdff$116": {
+          "hide_name": 1,
+          "type": "$dff",
+          "parameters": {
+            "CLK_POLARITY": "1",
+            "WIDTH": "00000000000000000000000000000010"
+          },
+          "attributes": {
+            "always_ff": "00000000000000000000000000000001",
+            "src": "/home/runner/work/G01-Moving-Average-Filter/G01-Moving-Average-Filter/rtl/g01_moving_average4.sv:33.5-62.8"
+          },
+          "port_directions": {
+            "CLK": "input",
+            "D": "input",
+            "Q": "output"
+          },
+          "connections": {
+            "CLK": [ 2 ],
+            "D": [ 132, 133 ],
+            "Q": [ 58, 59 ]
+          }
+        },
+        "$procdff$117": {
+          "hide_name": 1,
+          "type": "$dff",
+          "parameters": {
+            "CLK_POLARITY": "1",
+            "WIDTH": "00000000000000000000000000000011"
+          },
+          "attributes": {
+            "always_ff": "00000000000000000000000000000001",
+            "src": "/home/runner/work/G01-Moving-Average-Filter/G01-Moving-Average-Filter/rtl/g01_moving_average4.sv:33.5-62.8"
+          },
+          "port_directions": {
+            "CLK": "input",
+            "D": "input",
+            "Q": "output"
+          },
+          "connections": {
+            "CLK": [ 2 ],
+            "D": [ 134, 135, 136 ],
+            "Q": [ 52, 53, 54 ]
+          }
+        },
+        "$procdff$118": {
+          "hide_name": 1,
+          "type": "$dff",
+          "parameters": {
+            "CLK_POLARITY": "1",
+            "WIDTH": "00000000000000000000000000001010"
+          },
+          "attributes": {
+            "always_ff": "00000000000000000000000000000001",
+            "src": "/home/runner/work/G01-Moving-Average-Filter/G01-Moving-Average-Filter/rtl/g01_moving_average4.sv:33.5-62.8"
+          },
+          "port_directions": {
+            "CLK": "input",
+            "D": "input",
+            "Q": "output"
+          },
+          "connections": {
+            "CLK": [ 2 ],
+            "D": [ 137, 138, 139, 140, 141, 142, 143, 144, 145, 146 ],
+            "Q": [ 22, 23, 24, 25, 26, 27, 28, 29, 30, 31 ]
+          }
+        },
+        "$procmux$101": {
+          "hide_name": 1,
+          "type": "$mux",
+          "parameters": {
+            "WIDTH": "00000000000000000000000000000010"
+          },
+          "attributes": {
+            "full_case": "00000000000000000000000000000001",
+            "src": "/home/runner/work/G01-Moving-Average-Filter/G01-Moving-Average-Filter/rtl/g01_moving_average4.sv:34.13-34.19|/home/runner/work/G01-Moving-Average-Filter/G01-Moving-Average-Filter/rtl/g01_moving_average4.sv:34.9-61.12"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "S": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ "0", "0" ],
+            "B": [ 147, 148 ],
+            "S": [ 3 ],
+            "Y": [ 132, 133 ]
+          }
+        },
+        "$procmux$104": {
+          "hide_name": 1,
+          "type": "$mux",
+          "parameters": {
+            "WIDTH": "00000000000000000000000000001000"
+          },
+          "attributes": {
+            "src": "/home/runner/work/G01-Moving-Average-Filter/G01-Moving-Average-Filter/rtl/g01_moving_average4.sv:56.21-56.36|/home/runner/work/G01-Moving-Average-Filter/G01-Moving-Average-Filter/rtl/g01_moving_average4.sv:56.17-59.20"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "S": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 14, 15, 16, 17, 18, 19, 20, 21 ],
+            "B": [ 149, 150, 151, 152, 153, 154, 155, 156 ],
+            "S": [ 112 ],
+            "Y": [ 157, 158, 159, 160, 161, 162, 163, 164 ]
+          }
+        },
+        "$procmux$106": {
+          "hide_name": 1,
+          "type": "$mux",
+          "parameters": {
+            "WIDTH": "00000000000000000000000000001000"
+          },
+          "attributes": {
+            "full_case": "00000000000000000000000000000001",
+            "src": "/home/runner/work/G01-Moving-Average-Filter/G01-Moving-Average-Filter/rtl/g01_moving_average4.sv:47.17-47.25|/home/runner/work/G01-Moving-Average-Filter/G01-Moving-Average-Filter/rtl/g01_moving_average4.sv:47.13-60.16"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "S": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 14, 15, 16, 17, 18, 19, 20, 21 ],
+            "B": [ 157, 158, 159, 160, 161, 162, 163, 164 ],
+            "S": [ 4 ],
+            "Y": [ 165, 166, 167, 168, 169, 170, 171, 172 ]
+          }
+        },
+        "$procmux$109": {
+          "hide_name": 1,
+          "type": "$mux",
+          "parameters": {
+            "WIDTH": "00000000000000000000000000001000"
+          },
+          "attributes": {
+            "full_case": "00000000000000000000000000000001",
+            "src": "/home/runner/work/G01-Moving-Average-Filter/G01-Moving-Average-Filter/rtl/g01_moving_average4.sv:34.13-34.19|/home/runner/work/G01-Moving-Average-Filter/G01-Moving-Average-Filter/rtl/g01_moving_average4.sv:34.9-61.12"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "S": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ "0", "0", "0", "0", "0", "0", "0", "0" ],
+            "B": [ 165, 166, 167, 168, 169, 170, 171, 172 ],
+            "S": [ 3 ],
+            "Y": [ 124, 125, 126, 127, 128, 129, 130, 131 ]
+          }
+        },
+        "$procmux$112": {
+          "hide_name": 1,
+          "type": "$mux",
+          "parameters": {
+            "WIDTH": "00000000000000000000000000001010"
+          },
+          "attributes": {
+            "full_case": "00000000000000000000000000000001",
+            "src": "/home/runner/work/G01-Moving-Average-Filter/G01-Moving-Average-Filter/rtl/g01_moving_average4.sv:27.13-27.27|/home/runner/work/G01-Moving-Average-Filter/G01-Moving-Average-Filter/rtl/g01_moving_average4.sv:27.9-30.56"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "S": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 173, 174, 175, 176, 177, 178, 179, 180, 181, 182 ],
+            "B": [ 32, 33, 34, 35, 36, 37, 38, 39, 40, 41 ],
+            "S": [ 113 ],
+            "Y": [ 183, 184, 149, 150, 151, 152, 153, 154, 155, 156 ]
+          }
+        },
+        "$procmux$37": {
+          "hide_name": 1,
+          "type": "$mux",
+          "parameters": {
+            "WIDTH": "00000000000000000000000000001000"
+          },
+          "attributes": {
+            "full_case": "00000000000000000000000000000001",
+            "src": "/home/runner/work/G01-Moving-Average-Filter/G01-Moving-Average-Filter/rtl/g01_moving_average4.sv:47.17-47.25|/home/runner/work/G01-Moving-Average-Filter/G01-Moving-Average-Filter/rtl/g01_moving_average4.sv:47.13-60.16"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "S": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ "0", "0", "0", "0", "0", "0", "0", "0" ],
+            "B": [ "1", "1", "1", "1", "1", "1", "1", "1" ],
+            "S": [ 4 ],
+            "Y": [ 185, 186, 187, 188, 189, 190, 191, 192 ]
+          }
+        },
+        "$procmux$40": {
+          "hide_name": 1,
+          "type": "$mux",
+          "parameters": {
+            "WIDTH": "00000000000000000000000000001000"
+          },
+          "attributes": {
+            "full_case": "00000000000000000000000000000001",
+            "src": "/home/runner/work/G01-Moving-Average-Filter/G01-Moving-Average-Filter/rtl/g01_moving_average4.sv:34.13-34.19|/home/runner/work/G01-Moving-Average-Filter/G01-Moving-Average-Filter/rtl/g01_moving_average4.sv:34.9-61.12"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "S": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ "x", "x", "x", "x", "x", "x", "x", "x" ],
+            "B": [ 185, 186, 187, 188, 189, 190, 191, 192 ],
+            "S": [ 3 ],
+            "Y": [ 193, 194, 195, 196, 197, 198, 199, 200 ]
+          }
+        },
+        "$procmux$43": {
+          "hide_name": 1,
+          "type": "$mux",
+          "parameters": {
+            "WIDTH": "00000000000000000000000000001000"
+          },
+          "attributes": {
+            "full_case": "00000000000000000000000000000001",
+            "src": "/home/runner/work/G01-Moving-Average-Filter/G01-Moving-Average-Filter/rtl/g01_moving_average4.sv:47.17-47.25|/home/runner/work/G01-Moving-Average-Filter/G01-Moving-Average-Filter/rtl/g01_moving_average4.sv:47.13-60.16"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "S": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ "x", "x", "x", "x", "x", "x", "x", "x" ],
+            "B": [ 5, 6, 7, 8, 9, 10, 11, 12 ],
+            "S": [ 4 ],
+            "Y": [ 201, 202, 203, 204, 205, 206, 207, 208 ]
+          }
+        },
+        "$procmux$46": {
+          "hide_name": 1,
+          "type": "$mux",
+          "parameters": {
+            "WIDTH": "00000000000000000000000000001000"
+          },
+          "attributes": {
+            "full_case": "00000000000000000000000000000001",
+            "src": "/home/runner/work/G01-Moving-Average-Filter/G01-Moving-Average-Filter/rtl/g01_moving_average4.sv:34.13-34.19|/home/runner/work/G01-Moving-Average-Filter/G01-Moving-Average-Filter/rtl/g01_moving_average4.sv:34.9-61.12"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "S": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ "x", "x", "x", "x", "x", "x", "x", "x" ],
+            "B": [ 201, 202, 203, 204, 205, 206, 207, 208 ],
+            "S": [ 3 ],
+            "Y": [ 209, 210, 211, 212, 213, 214, 215, 216 ]
+          }
+        },
+        "$procmux$49": {
+          "hide_name": 1,
+          "type": "$mux",
+          "parameters": {
+            "WIDTH": "00000000000000000000000000000010"
+          },
+          "attributes": {
+            "full_case": "00000000000000000000000000000001",
+            "src": "/home/runner/work/G01-Moving-Average-Filter/G01-Moving-Average-Filter/rtl/g01_moving_average4.sv:47.17-47.25|/home/runner/work/G01-Moving-Average-Filter/G01-Moving-Average-Filter/rtl/g01_moving_average4.sv:47.13-60.16"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "S": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ "x", "x" ],
+            "B": [ 58, 59 ],
+            "S": [ 4 ],
+            "Y": [ 217, 218 ]
+          }
+        },
+        "$procmux$52": {
+          "hide_name": 1,
+          "type": "$mux",
+          "parameters": {
+            "WIDTH": "00000000000000000000000000000010"
+          },
+          "attributes": {
+            "full_case": "00000000000000000000000000000001",
+            "src": "/home/runner/work/G01-Moving-Average-Filter/G01-Moving-Average-Filter/rtl/g01_moving_average4.sv:34.13-34.19|/home/runner/work/G01-Moving-Average-Filter/G01-Moving-Average-Filter/rtl/g01_moving_average4.sv:34.9-61.12"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "S": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ "x", "x" ],
+            "B": [ 217, 218 ],
+            "S": [ 3 ],
+            "Y": [ 219, 220 ]
+          }
+        },
+        "$procmux$55": {
+          "hide_name": 1,
+          "type": "$mux",
+          "parameters": {
+            "WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "src": "/home/runner/work/G01-Moving-Average-Filter/G01-Moving-Average-Filter/rtl/g01_moving_average4.sv:56.21-56.36|/home/runner/work/G01-Moving-Average-Filter/G01-Moving-Average-Filter/rtl/g01_moving_average4.sv:56.17-59.20"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "S": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ "0" ],
+            "B": [ "1" ],
+            "S": [ 112 ],
+            "Y": [ 221 ]
+          }
+        },
+        "$procmux$57": {
+          "hide_name": 1,
+          "type": "$mux",
+          "parameters": {
+            "WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "full_case": "00000000000000000000000000000001",
+            "src": "/home/runner/work/G01-Moving-Average-Filter/G01-Moving-Average-Filter/rtl/g01_moving_average4.sv:47.17-47.25|/home/runner/work/G01-Moving-Average-Filter/G01-Moving-Average-Filter/rtl/g01_moving_average4.sv:47.13-60.16"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "S": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ "0" ],
+            "B": [ 221 ],
+            "S": [ 4 ],
+            "Y": [ 222 ]
+          }
+        },
+        "$procmux$60": {
+          "hide_name": 1,
+          "type": "$mux",
+          "parameters": {
+            "WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "full_case": "00000000000000000000000000000001",
+            "src": "/home/runner/work/G01-Moving-Average-Filter/G01-Moving-Average-Filter/rtl/g01_moving_average4.sv:34.13-34.19|/home/runner/work/G01-Moving-Average-Filter/G01-Moving-Average-Filter/rtl/g01_moving_average4.sv:34.9-61.12"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "S": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ "0" ],
+            "B": [ 222 ],
+            "S": [ 3 ],
+            "Y": [ 123 ]
+          }
+        },
+        "$procmux$63": {
+          "hide_name": 1,
+          "type": "$mux",
+          "parameters": {
+            "WIDTH": "00000000000000000000000000001000"
+          },
+          "attributes": {
+            "full_case": "00000000000000000000000000000001",
+            "src": "/home/runner/work/G01-Moving-Average-Filter/G01-Moving-Average-Filter/rtl/g01_moving_average4.sv:34.13-34.19|/home/runner/work/G01-Moving-Average-Filter/G01-Moving-Average-Filter/rtl/g01_moving_average4.sv:34.9-61.12"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "S": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ "1", "1", "1", "1", "1", "1", "1", "1" ],
+            "B": [ "0", "0", "0", "0", "0", "0", "0", "0" ],
+            "S": [ 3 ],
+            "Y": [ 86, 87, 88, 89, 90, 91, 92, 93 ]
+          }
+        },
+        "$procmux$66": {
+          "hide_name": 1,
+          "type": "$mux",
+          "parameters": {
+            "WIDTH": "00000000000000000000000000001000"
+          },
+          "attributes": {
+            "full_case": "00000000000000000000000000000001",
+            "src": "/home/runner/work/G01-Moving-Average-Filter/G01-Moving-Average-Filter/rtl/g01_moving_average4.sv:34.13-34.19|/home/runner/work/G01-Moving-Average-Filter/G01-Moving-Average-Filter/rtl/g01_moving_average4.sv:34.9-61.12"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "S": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ "1", "1", "1", "1", "1", "1", "1", "1" ],
+            "B": [ "0", "0", "0", "0", "0", "0", "0", "0" ],
+            "S": [ 3 ],
+            "Y": [ 78, 79, 80, 81, 82, 83, 84, 85 ]
+          }
+        },
+        "$procmux$69": {
+          "hide_name": 1,
+          "type": "$mux",
+          "parameters": {
+            "WIDTH": "00000000000000000000000000001000"
+          },
+          "attributes": {
+            "full_case": "00000000000000000000000000000001",
+            "src": "/home/runner/work/G01-Moving-Average-Filter/G01-Moving-Average-Filter/rtl/g01_moving_average4.sv:34.13-34.19|/home/runner/work/G01-Moving-Average-Filter/G01-Moving-Average-Filter/rtl/g01_moving_average4.sv:34.9-61.12"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "S": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ "1", "1", "1", "1", "1", "1", "1", "1" ],
+            "B": [ "0", "0", "0", "0", "0", "0", "0", "0" ],
+            "S": [ 3 ],
+            "Y": [ 70, 71, 72, 73, 74, 75, 76, 77 ]
+          }
+        },
+        "$procmux$72": {
+          "hide_name": 1,
+          "type": "$mux",
+          "parameters": {
+            "WIDTH": "00000000000000000000000000001000"
+          },
+          "attributes": {
+            "full_case": "00000000000000000000000000000001",
+            "src": "/home/runner/work/G01-Moving-Average-Filter/G01-Moving-Average-Filter/rtl/g01_moving_average4.sv:34.13-34.19|/home/runner/work/G01-Moving-Average-Filter/G01-Moving-Average-Filter/rtl/g01_moving_average4.sv:34.9-61.12"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "S": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ "1", "1", "1", "1", "1", "1", "1", "1" ],
+            "B": [ "0", "0", "0", "0", "0", "0", "0", "0" ],
+            "S": [ 3 ],
+            "Y": [ 62, 63, 64, 65, 66, 67, 68, 69 ]
+          }
+        },
+        "$procmux$75": {
+          "hide_name": 1,
+          "type": "$mux",
+          "parameters": {
+            "WIDTH": "00000000000000000000000000001000"
+          },
+          "attributes": {
+            "full_case": "00000000000000000000000000000001",
+            "src": "/home/runner/work/G01-Moving-Average-Filter/G01-Moving-Average-Filter/rtl/g01_moving_average4.sv:34.13-34.19|/home/runner/work/G01-Moving-Average-Filter/G01-Moving-Average-Filter/rtl/g01_moving_average4.sv:34.9-61.12"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "S": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ "0", "0", "0", "0", "0", "0", "0", "0" ],
+            "B": [ 193, 194, 195, 196, 197, 198, 199, 200 ],
+            "S": [ 3 ],
+            "Y": [ 104, 105, 106, 107, 108, 109, 110, 111 ]
+          }
+        },
+        "$procmux$78": {
+          "hide_name": 1,
+          "type": "$mux",
+          "parameters": {
+            "WIDTH": "00000000000000000000000000001000"
+          },
+          "attributes": {
+            "full_case": "00000000000000000000000000000001",
+            "src": "/home/runner/work/G01-Moving-Average-Filter/G01-Moving-Average-Filter/rtl/g01_moving_average4.sv:34.13-34.19|/home/runner/work/G01-Moving-Average-Filter/G01-Moving-Average-Filter/rtl/g01_moving_average4.sv:34.9-61.12"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "S": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ "x", "x", "x", "x", "x", "x", "x", "x" ],
+            "B": [ 209, 210, 211, 212, 213, 214, 215, 216 ],
+            "S": [ 3 ],
+            "Y": [ 96, 97, 98, 99, 100, 101, 102, 103 ]
+          }
+        },
+        "$procmux$81": {
+          "hide_name": 1,
+          "type": "$mux",
+          "parameters": {
+            "WIDTH": "00000000000000000000000000000010"
+          },
+          "attributes": {
+            "full_case": "00000000000000000000000000000001",
+            "src": "/home/runner/work/G01-Moving-Average-Filter/G01-Moving-Average-Filter/rtl/g01_moving_average4.sv:34.13-34.19|/home/runner/work/G01-Moving-Average-Filter/G01-Moving-Average-Filter/rtl/g01_moving_average4.sv:34.9-61.12"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "S": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ "x", "x" ],
+            "B": [ 219, 220 ],
+            "S": [ 3 ],
+            "Y": [ 94, 95 ]
+          }
+        },
+        "$procmux$84": {
+          "hide_name": 1,
+          "type": "$mux",
+          "parameters": {
+            "WIDTH": "00000000000000000000000000001010"
+          },
+          "attributes": {
+            "full_case": "00000000000000000000000000000001",
+            "src": "/home/runner/work/G01-Moving-Average-Filter/G01-Moving-Average-Filter/rtl/g01_moving_average4.sv:47.17-47.25|/home/runner/work/G01-Moving-Average-Filter/G01-Moving-Average-Filter/rtl/g01_moving_average4.sv:47.13-60.16"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "S": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 22, 23, 24, 25, 26, 27, 28, 29, 30, 31 ],
+            "B": [ 183, 184, 149, 150, 151, 152, 153, 154, 155, 156 ],
+            "S": [ 4 ],
+            "Y": [ 223, 224, 225, 226, 227, 228, 229, 230, 231, 232 ]
+          }
+        },
+        "$procmux$87": {
+          "hide_name": 1,
+          "type": "$mux",
+          "parameters": {
+            "WIDTH": "00000000000000000000000000001010"
+          },
+          "attributes": {
+            "full_case": "00000000000000000000000000000001",
+            "src": "/home/runner/work/G01-Moving-Average-Filter/G01-Moving-Average-Filter/rtl/g01_moving_average4.sv:34.13-34.19|/home/runner/work/G01-Moving-Average-Filter/G01-Moving-Average-Filter/rtl/g01_moving_average4.sv:34.9-61.12"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "S": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ "0", "0", "0", "0", "0", "0", "0", "0", "0", "0" ],
+            "B": [ 223, 224, 225, 226, 227, 228, 229, 230, 231, 232 ],
+            "S": [ 3 ],
+            "Y": [ 137, 138, 139, 140, 141, 142, 143, 144, 145, 146 ]
+          }
+        },
+        "$procmux$90": {
+          "hide_name": 1,
+          "type": "$mux",
+          "parameters": {
+            "WIDTH": "00000000000000000000000000000011"
+          },
+          "attributes": {
+            "src": "/home/runner/work/G01-Moving-Average-Filter/G01-Moving-Average-Filter/rtl/g01_moving_average4.sv:51.21-51.35|/home/runner/work/G01-Moving-Average-Filter/G01-Moving-Average-Filter/rtl/g01_moving_average4.sv:51.17-52.47"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "S": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 52, 53, 54 ],
+            "B": [ 55, 56, 57 ],
+            "S": [ 114 ],
+            "Y": [ 233, 234, 235 ]
+          }
+        },
+        "$procmux$92": {
+          "hide_name": 1,
+          "type": "$mux",
+          "parameters": {
+            "WIDTH": "00000000000000000000000000000011"
+          },
+          "attributes": {
+            "full_case": "00000000000000000000000000000001",
+            "src": "/home/runner/work/G01-Moving-Average-Filter/G01-Moving-Average-Filter/rtl/g01_moving_average4.sv:47.17-47.25|/home/runner/work/G01-Moving-Average-Filter/G01-Moving-Average-Filter/rtl/g01_moving_average4.sv:47.13-60.16"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "S": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 52, 53, 54 ],
+            "B": [ 233, 234, 235 ],
+            "S": [ 4 ],
+            "Y": [ 236, 237, 238 ]
+          }
+        },
+        "$procmux$95": {
+          "hide_name": 1,
+          "type": "$mux",
+          "parameters": {
+            "WIDTH": "00000000000000000000000000000011"
+          },
+          "attributes": {
+            "full_case": "00000000000000000000000000000001",
+            "src": "/home/runner/work/G01-Moving-Average-Filter/G01-Moving-Average-Filter/rtl/g01_moving_average4.sv:34.13-34.19|/home/runner/work/G01-Moving-Average-Filter/G01-Moving-Average-Filter/rtl/g01_moving_average4.sv:34.9-61.12"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "S": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ "0", "0", "0" ],
+            "B": [ 236, 237, 238 ],
+            "S": [ 3 ],
+            "Y": [ 134, 135, 136 ]
+          }
+        },
+        "$procmux$98": {
+          "hide_name": 1,
+          "type": "$mux",
+          "parameters": {
+            "WIDTH": "00000000000000000000000000000010"
+          },
+          "attributes": {
+            "full_case": "00000000000000000000000000000001",
+            "src": "/home/runner/work/G01-Moving-Average-Filter/G01-Moving-Average-Filter/rtl/g01_moving_average4.sv:47.17-47.25|/home/runner/work/G01-Moving-Average-Filter/G01-Moving-Average-Filter/rtl/g01_moving_average4.sv:47.13-60.16"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "S": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 58, 59 ],
+            "B": [ 60, 61 ],
+            "S": [ 4 ],
+            "Y": [ 147, 148 ]
+          }
+        },
+        "$sub$/home/runner/work/G01-Moving-Average-Filter/G01-Moving-Average-Filter/rtl/g01_moving_average4.sv:30$11": {
+          "hide_name": 1,
+          "type": "$sub",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000001010",
+            "B_SIGNED": "00000000000000000000000000000000",
+            "B_WIDTH": "00000000000000000000000000001010",
+            "Y_WIDTH": "00000000000000000000000000001010"
+          },
+          "attributes": {
+            "src": "/home/runner/work/G01-Moving-Average-Filter/G01-Moving-Average-Filter/rtl/g01_moving_average4.sv:30.24-30.55"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 42, 43, 44, 45, 46, 47, 48, 49, 50, 51 ],
+            "B": [ 115, 116, 117, 118, 119, 120, 121, 122, "0", "0" ],
+            "Y": [ 173, 174, 175, 176, 177, 178, 179, 180, 181, 182 ]
+          }
+        }
+      },
+      "memories": {
+        "sample_mem": {
+          "hide_name": 0,
+          "attributes": {
+            "src": "/home/runner/work/G01-Moving-Average-Filter/G01-Moving-Average-Filter/rtl/g01_moving_average4.sv:14.19-14.29"
+          },
+          "width": 8,
+          "start_offset": 0,
+          "size": 4
+        }
+      },
+      "netnames": {
+        "$0$memwr$\\sample_mem$/home/runner/work/G01-Moving-Average-Filter/G01-Moving-Average-Filter/rtl/g01_moving_average4.sv:35$1_EN[7:0]$13": {
+          "hide_name": 1,
+          "bits": [ 62, 63, 64, 65, 66, 67, 68, 69 ],
+          "attributes": {
+            "src": "/home/runner/work/G01-Moving-Average-Filter/G01-Moving-Average-Filter/rtl/g01_moving_average4.sv:33.5-62.8"
+          }
+        },
+        "$0$memwr$\\sample_mem$/home/runner/work/G01-Moving-Average-Filter/G01-Moving-Average-Filter/rtl/g01_moving_average4.sv:36$2_EN[7:0]$14": {
+          "hide_name": 1,
+          "bits": [ 70, 71, 72, 73, 74, 75, 76, 77 ],
+          "attributes": {
+            "src": "/home/runner/work/G01-Moving-Average-Filter/G01-Moving-Average-Filter/rtl/g01_moving_average4.sv:33.5-62.8"
+          }
+        },
+        "$0$memwr$\\sample_mem$/home/runner/work/G01-Moving-Average-Filter/G01-Moving-Average-Filter/rtl/g01_moving_average4.sv:37$3_EN[7:0]$15": {
+          "hide_name": 1,
+          "bits": [ 78, 79, 80, 81, 82, 83, 84, 85 ],
+          "attributes": {
+            "src": "/home/runner/work/G01-Moving-Average-Filter/G01-Moving-Average-Filter/rtl/g01_moving_average4.sv:33.5-62.8"
+          }
+        },
+        "$0$memwr$\\sample_mem$/home/runner/work/G01-Moving-Average-Filter/G01-Moving-Average-Filter/rtl/g01_moving_average4.sv:38$4_EN[7:0]$16": {
+          "hide_name": 1,
+          "bits": [ 86, 87, 88, 89, 90, 91, 92, 93 ],
+          "attributes": {
+            "src": "/home/runner/work/G01-Moving-Average-Filter/G01-Moving-Average-Filter/rtl/g01_moving_average4.sv:33.5-62.8"
+          }
+        },
+        "$0$memwr$\\sample_mem$/home/runner/work/G01-Moving-Average-Filter/G01-Moving-Average-Filter/rtl/g01_moving_average4.sv:48$5_ADDR[1:0]$17": {
+          "hide_name": 1,
+          "bits": [ 94, 95 ],
+          "attributes": {
+            "src": "/home/runner/work/G01-Moving-Average-Filter/G01-Moving-Average-Filter/rtl/g01_moving_average4.sv:33.5-62.8"
+          }
+        },
+        "$0$memwr$\\sample_mem$/home/runner/work/G01-Moving-Average-Filter/G01-Moving-Average-Filter/rtl/g01_moving_average4.sv:48$5_DATA[7:0]$18": {
+          "hide_name": 1,
+          "bits": [ 96, 97, 98, 99, 100, 101, 102, 103 ],
+          "attributes": {
+            "src": "/home/runner/work/G01-Moving-Average-Filter/G01-Moving-Average-Filter/rtl/g01_moving_average4.sv:33.5-62.8"
+          }
+        },
+        "$0$memwr$\\sample_mem$/home/runner/work/G01-Moving-Average-Filter/G01-Moving-Average-Filter/rtl/g01_moving_average4.sv:48$5_EN[7:0]$19": {
+          "hide_name": 1,
+          "bits": [ 104, 105, 106, 107, 108, 109, 110, 111 ],
+          "attributes": {
+            "src": "/home/runner/work/G01-Moving-Average-Filter/G01-Moving-Average-Filter/rtl/g01_moving_average4.sv:33.5-62.8"
+          }
+        },
+        "$0\\avg_out[7:0]": {
+          "hide_name": 1,
+          "bits": [ 124, 125, 126, 127, 128, 129, 130, 131 ],
+          "attributes": {
+            "src": "/home/runner/work/G01-Moving-Average-Filter/G01-Moving-Average-Filter/rtl/g01_moving_average4.sv:33.5-62.8"
+          }
+        },
+        "$0\\count_q[2:0]": {
+          "hide_name": 1,
+          "bits": [ 134, 135, 136 ],
+          "attributes": {
+            "src": "/home/runner/work/G01-Moving-Average-Filter/G01-Moving-Average-Filter/rtl/g01_moving_average4.sv:33.5-62.8"
+          }
+        },
+        "$0\\sum_q[9:0]": {
+          "hide_name": 1,
+          "bits": [ 137, 138, 139, 140, 141, 142, 143, 144, 145, 146 ],
+          "attributes": {
+            "src": "/home/runner/work/G01-Moving-Average-Filter/G01-Moving-Average-Filter/rtl/g01_moving_average4.sv:33.5-62.8"
+          }
+        },
+        "$0\\valid_out[0:0]": {
+          "hide_name": 1,
+          "bits": [ 123 ],
+          "attributes": {
+            "src": "/home/runner/work/G01-Moving-Average-Filter/G01-Moving-Average-Filter/rtl/g01_moving_average4.sv:33.5-62.8"
+          }
+        },
+        "$0\\wr_ptr[1:0]": {
+          "hide_name": 1,
+          "bits": [ 132, 133 ],
+          "attributes": {
+            "src": "/home/runner/work/G01-Moving-Average-Filter/G01-Moving-Average-Filter/rtl/g01_moving_average4.sv:33.5-62.8"
+          }
+        },
+        "$2$memwr$\\sample_mem$/home/runner/work/G01-Moving-Average-Filter/G01-Moving-Average-Filter/rtl/g01_moving_average4.sv:48$5_ADDR[1:0]$28": {
+          "hide_name": 1,
+          "bits": [ 219, 220 ],
+          "attributes": {
+            "src": "/home/runner/work/G01-Moving-Average-Filter/G01-Moving-Average-Filter/rtl/g01_moving_average4.sv:33.5-62.8"
+          }
+        },
+        "$2$memwr$\\sample_mem$/home/runner/work/G01-Moving-Average-Filter/G01-Moving-Average-Filter/rtl/g01_moving_average4.sv:48$5_DATA[7:0]$29": {
+          "hide_name": 1,
+          "bits": [ 209, 210, 211, 212, 213, 214, 215, 216 ],
+          "attributes": {
+            "src": "/home/runner/work/G01-Moving-Average-Filter/G01-Moving-Average-Filter/rtl/g01_moving_average4.sv:33.5-62.8"
+          }
+        },
+        "$2$memwr$\\sample_mem$/home/runner/work/G01-Moving-Average-Filter/G01-Moving-Average-Filter/rtl/g01_moving_average4.sv:48$5_EN[7:0]$30": {
+          "hide_name": 1,
+          "bits": [ 193, 194, 195, 196, 197, 198, 199, 200 ],
+          "attributes": {
+            "src": "/home/runner/work/G01-Moving-Average-Filter/G01-Moving-Average-Filter/rtl/g01_moving_average4.sv:33.5-62.8"
+          }
+        },
+        "$add$/home/runner/work/G01-Moving-Average-Filter/G01-Moving-Average-Filter/rtl/g01_moving_average4.sv:28$9_Y": {
+          "hide_name": 1,
+          "bits": [ 32, 33, 34, 35, 36, 37, 38, 39, 40, 41 ],
+          "attributes": {
+            "src": "/home/runner/work/G01-Moving-Average-Filter/G01-Moving-Average-Filter/rtl/g01_moving_average4.sv:28.24-28.42"
+          }
+        },
+        "$add$/home/runner/work/G01-Moving-Average-Filter/G01-Moving-Average-Filter/rtl/g01_moving_average4.sv:30$10_Y": {
+          "hide_name": 1,
+          "bits": [ 42, 43, 44, 45, 46, 47, 48, 49, 50, 51 ],
+          "attributes": {
+            "src": "/home/runner/work/G01-Moving-Average-Filter/G01-Moving-Average-Filter/rtl/g01_moving_average4.sv:30.24-30.42"
+          }
+        },
+        "$add$/home/runner/work/G01-Moving-Average-Filter/G01-Moving-Average-Filter/rtl/g01_moving_average4.sv:52$32_Y": {
+          "hide_name": 1,
+          "bits": [ 55, 56, 57 ],
+          "attributes": {
+            "src": "/home/runner/work/G01-Moving-Average-Filter/G01-Moving-Average-Filter/rtl/g01_moving_average4.sv:52.32-52.46"
+          }
+        },
+        "$add$/home/runner/work/G01-Moving-Average-Filter/G01-Moving-Average-Filter/rtl/g01_moving_average4.sv:54$33_Y": {
+          "hide_name": 1,
+          "bits": [ 60, 61 ],
+          "attributes": {
+            "src": "/home/runner/work/G01-Moving-Average-Filter/G01-Moving-Average-Filter/rtl/g01_moving_average4.sv:54.27-54.40"
+          }
+        },
+        "$ge$/home/runner/work/G01-Moving-Average-Filter/G01-Moving-Average-Filter/rtl/g01_moving_average4.sv:56$34_Y": {
+          "hide_name": 1,
+          "bits": [ 112 ],
+          "attributes": {
+            "src": "/home/runner/work/G01-Moving-Average-Filter/G01-Moving-Average-Filter/rtl/g01_moving_average4.sv:56.21-56.36"
+          }
+        },
+        "$lt$/home/runner/work/G01-Moving-Average-Filter/G01-Moving-Average-Filter/rtl/g01_moving_average4.sv:27$8_Y": {
+          "hide_name": 1,
+          "bits": [ 113 ],
+          "attributes": {
+            "src": "/home/runner/work/G01-Moving-Average-Filter/G01-Moving-Average-Filter/rtl/g01_moving_average4.sv:27.13-27.27"
+          }
+        },
+        "$lt$/home/runner/work/G01-Moving-Average-Filter/G01-Moving-Average-Filter/rtl/g01_moving_average4.sv:51$31_Y": {
+          "hide_name": 1,
+          "bits": [ 114 ],
+          "attributes": {
+            "src": "/home/runner/work/G01-Moving-Average-Filter/G01-Moving-Average-Filter/rtl/g01_moving_average4.sv:51.21-51.35"
+          }
+        },
+        "$procmux$104_Y": {
+          "hide_name": 1,
+          "bits": [ 157, 158, 159, 160, 161, 162, 163, 164 ],
+          "attributes": {
+          }
+        },
+        "$procmux$106_Y": {
+          "hide_name": 1,
+          "bits": [ 165, 166, 167, 168, 169, 170, 171, 172 ],
+          "attributes": {
+          }
+        },
+        "$procmux$37_Y": {
+          "hide_name": 1,
+          "bits": [ 185, 186, 187, 188, 189, 190, 191, 192 ],
+          "attributes": {
+          }
+        },
+        "$procmux$43_Y": {
+          "hide_name": 1,
+          "bits": [ 201, 202, 203, 204, 205, 206, 207, 208 ],
+          "attributes": {
+          }
+        },
+        "$procmux$49_Y": {
+          "hide_name": 1,
+          "bits": [ 217, 218 ],
+          "attributes": {
+          }
+        },
+        "$procmux$55_Y": {
+          "hide_name": 1,
+          "bits": [ 221 ],
+          "attributes": {
+          }
+        },
+        "$procmux$57_Y": {
+          "hide_name": 1,
+          "bits": [ 222 ],
+          "attributes": {
+          }
+        },
+        "$procmux$84_Y": {
+          "hide_name": 1,
+          "bits": [ 223, 224, 225, 226, 227, 228, 229, 230, 231, 232 ],
+          "attributes": {
+          }
+        },
+        "$procmux$90_Y": {
+          "hide_name": 1,
+          "bits": [ 233, 234, 235 ],
+          "attributes": {
+          }
+        },
+        "$procmux$92_Y": {
+          "hide_name": 1,
+          "bits": [ 236, 237, 238 ],
+          "attributes": {
+          }
+        },
+        "$procmux$98_Y": {
+          "hide_name": 1,
+          "bits": [ 147, 148 ],
+          "attributes": {
+          }
+        },
+        "$sub$/home/runner/work/G01-Moving-Average-Filter/G01-Moving-Average-Filter/rtl/g01_moving_average4.sv:30$11_Y": {
+          "hide_name": 1,
+          "bits": [ 173, 174, 175, 176, 177, 178, 179, 180, 181, 182 ],
+          "attributes": {
+            "src": "/home/runner/work/G01-Moving-Average-Filter/G01-Moving-Average-Filter/rtl/g01_moving_average4.sv:30.24-30.55"
+          }
+        },
+        "avg_out": {
+          "hide_name": 0,
+          "bits": [ 14, 15, 16, 17, 18, 19, 20, 21 ],
+          "attributes": {
+            "src": "/home/runner/work/G01-Moving-Average-Filter/G01-Moving-Average-Filter/rtl/g01_moving_average4.sv:9.26-9.33"
+          }
+        },
+        "clk": {
+          "hide_name": 0,
+          "bits": [ 2 ],
+          "attributes": {
+            "src": "/home/runner/work/G01-Moving-Average-Filter/G01-Moving-Average-Filter/rtl/g01_moving_average4.sv:4.26-4.29"
+          }
+        },
+        "count_q": {
+          "hide_name": 0,
+          "bits": [ 52, 53, 54 ],
+          "attributes": {
+            "src": "/home/runner/work/G01-Moving-Average-Filter/G01-Moving-Average-Filter/rtl/g01_moving_average4.sv:16.17-16.24"
+          }
+        },
+        "oldest_ext": {
+          "hide_name": 0,
+          "bits": [ 115, 116, 117, 118, 119, 120, 121, 122, "0", "0" ],
+          "attributes": {
+            "src": "/home/runner/work/G01-Moving-Average-Filter/G01-Moving-Average-Filter/rtl/g01_moving_average4.sv:20.23-20.33"
+          }
+        },
+        "rst_n": {
+          "hide_name": 0,
+          "bits": [ 3 ],
+          "attributes": {
+            "src": "/home/runner/work/G01-Moving-Average-Filter/G01-Moving-Average-Filter/rtl/g01_moving_average4.sv:5.26-5.31"
+          }
+        },
+        "sample_in": {
+          "hide_name": 0,
+          "bits": [ 5, 6, 7, 8, 9, 10, 11, 12 ],
+          "attributes": {
+            "src": "/home/runner/work/G01-Moving-Average-Filter/G01-Moving-Average-Filter/rtl/g01_moving_average4.sv:7.26-7.35"
+          }
+        },
+        "sum_next": {
+          "hide_name": 0,
+          "bits": [ 183, 184, 149, 150, 151, 152, 153, 154, 155, 156 ],
+          "attributes": {
+            "src": "/home/runner/work/G01-Moving-Average-Filter/G01-Moving-Average-Filter/rtl/g01_moving_average4.sv:21.23-21.31"
+          }
+        },
+        "sum_q": {
+          "hide_name": 0,
+          "bits": [ 22, 23, 24, 25, 26, 27, 28, 29, 30, 31 ],
+          "attributes": {
+            "src": "/home/runner/work/G01-Moving-Average-Filter/G01-Moving-Average-Filter/rtl/g01_moving_average4.sv:17.23-17.28"
+          }
+        },
+        "valid_in": {
+          "hide_name": 0,
+          "bits": [ 4 ],
+          "attributes": {
+            "src": "/home/runner/work/G01-Moving-Average-Filter/G01-Moving-Average-Filter/rtl/g01_moving_average4.sv:6.26-6.34"
+          }
+        },
+        "valid_out": {
+          "hide_name": 0,
+          "bits": [ 13 ],
+          "attributes": {
+            "src": "/home/runner/work/G01-Moving-Average-Filter/G01-Moving-Average-Filter/rtl/g01_moving_average4.sv:8.26-8.35"
+          }
+        },
+        "wr_ptr": {
+          "hide_name": 0,
+          "bits": [ 58, 59 ],
+          "attributes": {
+            "src": "/home/runner/work/G01-Moving-Average-Filter/G01-Moving-Average-Filter/rtl/g01_moving_average4.sv:15.17-15.23"
+          }
+        }
+      }
+    }
+  }
+}

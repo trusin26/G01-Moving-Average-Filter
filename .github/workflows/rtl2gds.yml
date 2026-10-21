@@ -62,6 +62,19 @@ jobs:
             || { echo "::error::Testbench khong chay toi cuoi"; cat simulation.log; exit 1; }
           echo "Mo phong: PASS (co 'G01 TB completed', khong co fatal/mismatch/error)"
 
+      - name: Mo phong ca tu xay dung (tb_own)
+        run: |
+          mkdir -p ci_out/sim_own
+          iverilog -g2012 -o ci_out/sim_own.vvp rtl/g01_moving_average4.sv tb_own/*.sv
+          (cd ci_out/sim_own && vvp ../sim_own.vvp | tee simulation_own.log)
+          cd ci_out/sim_own
+          if grep -qiE "fatal|mismatch|error|fail" simulation_own.log; then
+            echo "::error::tb_own FAIL"; cat simulation_own.log; exit 1
+          fi
+          grep -q "G01 OWN TB ALL PASS" simulation_own.log \
+            || { echo "::error::tb_own khong chay toi cuoi"; cat simulation_own.log; exit 1; }
+          echo "tb_own: PASS"
+
       - name: Upload artifacts mo phong
         if: always()
         uses: actions/upload-artifact@v4

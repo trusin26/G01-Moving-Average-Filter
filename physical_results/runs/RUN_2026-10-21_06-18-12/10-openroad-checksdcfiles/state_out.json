@@ -1,0 +1,14 @@
+{
+    "json_h": "/home/runner/work/G01-Moving-Average-Filter/G01-Moving-Average-Filter/runs/RUN_2026-10-21_06-18-12/05-yosys-jsonheader/g01_moving_average4.h.json",
+    "nl": "/home/runner/work/G01-Moving-Average-Filter/G01-Moving-Average-Filter/runs/RUN_2026-10-21_06-18-12/06-yosys-synthesis/g01_moving_average4.nl.v",
+    "metrics": {
+        "design__lint_error__count": 0,
+        "design__lint_timing_construct__count": 0,
+        "design__lint_warning__count": 1,
+        "design__inferred_latch__count": 0,
+        "design__instance__count": 257,
+        "design__instance__area": 3135.5072,
+        "design__instance_unmapped__count": 0,
+        "synthesis__check_error__count": 0
+    }
+}

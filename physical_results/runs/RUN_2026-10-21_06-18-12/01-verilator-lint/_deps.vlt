@@ -1,0 +1,5 @@
+`verilator_config
+lint_off -rule DECLFILENAME
+lint_off -rule EOFNEWLINE
+lint_off -rule UNDRIVEN -file "/home/runner/work/G01-Moving-Average-Filter/G01-Moving-Average-Filter/runs/RUN_2026-10-21_06-18-12/tmp/463289f5bd754052aa6287fc7532185a.bb.v"
+lint_off -rule UNUSEDSIGNAL -file "/home/runner/work/G01-Moving-Average-Filter/G01-Moving-Average-Filter/runs/RUN_2026-10-21_06-18-12/tmp/463289f5bd754052aa6287fc7532185a.bb.v"
