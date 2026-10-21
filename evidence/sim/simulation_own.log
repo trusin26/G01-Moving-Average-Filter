@@ -1,4 +1,4 @@
-VCD info: dumpfile g01_tb_own.vcd opened for output.
+VCD info: dumpfile /tmp/g01/g01_tb_own.vcd opened for output.
 [OWN-1] Test mid-stream reset...
 [OWN-1] PASS
 [OWN-2] Test intermittent valid_in...
@@ -6,4 +6,4 @@ VCD info: dumpfile g01_tb_own.vcd opened for output.
 [OWN-3] Test bien tran: bon mau 255 (tong = 1020)...
 [OWN-3] PASS
 G01 OWN TB ALL PASS
-tb/g01_tb_own.sv:163: $finish called at 326000 (1ps)
+tb/g01_tb_own.sv:120: $finish called at 266000 (1ps)
