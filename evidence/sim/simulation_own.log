@@ -1,0 +1,7 @@
+VCD info: dumpfile /tmp/g01/g01_tb_own.vcd opened for output.
+[OWN-1] Test mid-stream reset...
+[OWN-1] PASS
+[OWN-2] Test intermittent valid_in...
+[OWN-2] PASS
+G01 OWN TB ALL PASS
+tb/g01_tb_own.sv:106: $finish called at 206000 (1ps)
