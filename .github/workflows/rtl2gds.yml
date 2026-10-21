@@ -97,8 +97,14 @@ jobs:
           { echo "librelane ${LIBRELANE_VERSION} (pip)"; docker --version; } | tee librelane_version.txt
 
       - name: Chay flow LibreLane (Docker)
+        env:
+          TERM: xterm
         run: |
-          python3 -m librelane --dockerized "${CONFIG}" 2>&1 | tee librelane_run.log
+          # LibreLane --dockerized chay "docker run -it"; runner CI khong co terminal nen bao
+          # "the input device is not a TTY". Lenh 'script' cap mot pseudo-terminal de vuot qua.
+          # -e: tra ve ma thoat cua lenh con. tr/sed: bo ky tu dieu khien cho log de doc.
+          script -q -e -c "python3 -m librelane --dockerized ${CONFIG}" /dev/null 2>&1 \
+            | tr -d '\r' | sed -r 's/\x1b\[[0-9;?]*[A-Za-z]//g' | tee librelane_run.log
 
       - name: Thu thap bang chung va viet tom tat
         if: always()
