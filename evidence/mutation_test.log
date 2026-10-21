@@ -1,0 +1,13 @@
+== RTL dot bien:
+12:    localparam int SUM_W = W + 1;
+== 1) Testbench cua thay tren RTL dot bien (ky vong: van in completed, tuc KHONG bat duoc)
+G01 TB completed
+== 2) Testbench tu xay dung tren RTL dot bien (ky vong: OWN-3 FAIL)
+[OWN-1] PASS
+[OWN-2] PASS
+FATAL: tb_own/g01_tb_own.sv:116: OWN-3 FAIL: expected avg_out=255, got 127
+== 3) Doi chung: testbench tu xay dung tren RTL goc (ky vong: ALL PASS)
+[OWN-1] PASS
+[OWN-2] PASS
+[OWN-3] PASS
+G01 OWN TB ALL PASS
