@@ -1,0 +1,1434 @@
+
+ /----------------------------------------------------------------------------\
+ |  yosys -- Yosys Open SYnthesis Suite                                       |
+ |  Copyright (C) 2012 - 2026  Claire Xenia Wolf <claire@yosyshq.com>         |
+ |  Distributed under an ISC-like license, type "license" to see terms        |
+ \----------------------------------------------------------------------------/
+ Yosys 0.62 (git sha1 7326bb7d6641500ecb285c291a54a662cb1e76cf, clang++ 21.1.2 -fPIC -O3)
+
+1. Executing Liberty frontend: /home/runner/.ciel/ciel/sky130/versions/8afc8346a57fe1ab7934ba5a6056ea8b43078e71/sky130A/libs.ref/sky130_fd_sc_hd/lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+Imported 428 cell types from liberty file.
+[INFO] Using SDC file '/home/runner/work/G01-Moving-Average-Filter/G01-Moving-Average-Filter/runs/RUN_2026-10-21_10-52-53/06-yosys-synthesis/synthesis.abc.sdc' for ABC…
+
+2. Executing Verilog-2005 frontend: /home/runner/work/G01-Moving-Average-Filter/G01-Moving-Average-Filter/rtl/g01_moving_average4.sv
+Parsing SystemVerilog input from `/home/runner/work/G01-Moving-Average-Filter/G01-Moving-Average-Filter/rtl/g01_moving_average4.sv' to AST representation.
+Storing AST representation for module `$abstract\g01_moving_average4'.
+Successfully finished Verilog frontend.
+
+3. Executing HIERARCHY pass (managing design hierarchy).
+
+4. Executing AST frontend in derive mode using pre-parsed AST for module `\g01_moving_average4'.
+Generating RTLIL representation for module `\g01_moving_average4'.
+
+4.1. Analyzing design hierarchy..
+Top module:  \g01_moving_average4
+
+4.2. Analyzing design hierarchy..
+Top module:  \g01_moving_average4
+Removing unused module `$abstract\g01_moving_average4'.
+Removed 1 unused modules.
+Renaming module g01_moving_average4 to g01_moving_average4.
+
+5. Executing ATTRMAP pass (move or copy attributes).
+
+6. Executing TRIBUF pass.
+
+7. Executing HIERARCHY pass (managing design hierarchy).
+
+7.1. Analyzing design hierarchy..
+Top module:  \g01_moving_average4
+
+7.2. Analyzing design hierarchy..
+Top module:  \g01_moving_average4
+Removed 0 unused modules.
+
+8. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Cleaned up 0 empty switches.
+
+9. Executing PROC_RMDEAD pass (remove dead branches from decision trees).
+Marked 2 switch rules as full_case in process $proc$/home/runner/work/G01-Moving-Average-Filter/G01-Moving-Average-Filter/rtl/g01_moving_average4.sv:33$12 in module g01_moving_average4.
+Marked 1 switch rules as full_case in process $proc$/home/runner/work/G01-Moving-Average-Filter/G01-Moving-Average-Filter/rtl/g01_moving_average4.sv:26$7 in module g01_moving_average4.
+Removed a total of 0 dead cases.
+
+10. Executing PROC_PRUNE pass (remove redundant assignments in processes).
+Removed 1 redundant assignment.
+Promoted 8 assignments to connections.
+
+11. Executing PROC_INIT pass (extract init attributes).
+
+12. Executing PROC_ARST pass (detect async resets in processes).
+
+13. Executing PROC_ROM pass (convert switches to ROMs).
+Converted 0 switches.
+<suppressed ~5 debug messages>
+
+14. Executing PROC_MUX pass (convert decision trees to multiplexers).
+Creating decoders for process `\g01_moving_average4.$proc$/home/runner/work/G01-Moving-Average-Filter/G01-Moving-Average-Filter/rtl/g01_moving_average4.sv:33$12'.
+     1/15: $2$memwr$\sample_mem$/home/runner/work/G01-Moving-Average-Filter/G01-Moving-Average-Filter/rtl/g01_moving_average4.sv:48$5_EN[7:0]$30
+     2/15: $2$memwr$\sample_mem$/home/runner/work/G01-Moving-Average-Filter/G01-Moving-Average-Filter/rtl/g01_moving_average4.sv:48$5_DATA[7:0]$29
+     3/15: $2$memwr$\sample_mem$/home/runner/work/G01-Moving-Average-Filter/G01-Moving-Average-Filter/rtl/g01_moving_average4.sv:48$5_ADDR[1:0]$28
+     4/15: $0\valid_out[0:0]
+     5/15: $1$memwr$\sample_mem$/home/runner/work/G01-Moving-Average-Filter/G01-Moving-Average-Filter/rtl/g01_moving_average4.sv:38$4_EN[7:0]$24
+     6/15: $1$memwr$\sample_mem$/home/runner/work/G01-Moving-Average-Filter/G01-Moving-Average-Filter/rtl/g01_moving_average4.sv:37$3_EN[7:0]$23
+     7/15: $1$memwr$\sample_mem$/home/runner/work/G01-Moving-Average-Filter/G01-Moving-Average-Filter/rtl/g01_moving_average4.sv:36$2_EN[7:0]$22
+     8/15: $1$memwr$\sample_mem$/home/runner/work/G01-Moving-Average-Filter/G01-Moving-Average-Filter/rtl/g01_moving_average4.sv:35$1_EN[7:0]$21
+     9/15: $1$memwr$\sample_mem$/home/runner/work/G01-Moving-Average-Filter/G01-Moving-Average-Filter/rtl/g01_moving_average4.sv:48$5_EN[7:0]$27
+    10/15: $1$memwr$\sample_mem$/home/runner/work/G01-Moving-Average-Filter/G01-Moving-Average-Filter/rtl/g01_moving_average4.sv:48$5_DATA[7:0]$26
+    11/15: $1$memwr$\sample_mem$/home/runner/work/G01-Moving-Average-Filter/G01-Moving-Average-Filter/rtl/g01_moving_average4.sv:48$5_ADDR[1:0]$25
+    12/15: $0\sum_q[9:0]
+    13/15: $0\count_q[2:0]
+    14/15: $0\wr_ptr[1:0]
+    15/15: $0\avg_out[7:0]
+Creating decoders for process `\g01_moving_average4.$proc$/home/runner/work/G01-Moving-Average-Filter/G01-Moving-Average-Filter/rtl/g01_moving_average4.sv:26$7'.
+     1/1: $1\sum_next[9:0]
+
+15. Executing PROC_DLATCH pass (convert process syncs to latches).
+No latch inferred for signal `\g01_moving_average4.\sum_next' from process `\g01_moving_average4.$proc$/home/runner/work/G01-Moving-Average-Filter/G01-Moving-Average-Filter/rtl/g01_moving_average4.sv:26$7'.
+
+16. Executing PROC_DFF pass (convert process syncs to FFs).
+Creating register for signal `\g01_moving_average4.\valid_out' using process `\g01_moving_average4.$proc$/home/runner/work/G01-Moving-Average-Filter/G01-Moving-Average-Filter/rtl/g01_moving_average4.sv:33$12'.
+  created $dff cell `$procdff$114' with positive edge clock.
+Creating register for signal `\g01_moving_average4.\avg_out' using process `\g01_moving_average4.$proc$/home/runner/work/G01-Moving-Average-Filter/G01-Moving-Average-Filter/rtl/g01_moving_average4.sv:33$12'.
+  created $dff cell `$procdff$115' with positive edge clock.
+Creating register for signal `\g01_moving_average4.\wr_ptr' using process `\g01_moving_average4.$proc$/home/runner/work/G01-Moving-Average-Filter/G01-Moving-Average-Filter/rtl/g01_moving_average4.sv:33$12'.
+  created $dff cell `$procdff$116' with positive edge clock.
+Creating register for signal `\g01_moving_average4.\count_q' using process `\g01_moving_average4.$proc$/home/runner/work/G01-Moving-Average-Filter/G01-Moving-Average-Filter/rtl/g01_moving_average4.sv:33$12'.
+  created $dff cell `$procdff$117' with positive edge clock.
+Creating register for signal `\g01_moving_average4.\sum_q' using process `\g01_moving_average4.$proc$/home/runner/work/G01-Moving-Average-Filter/G01-Moving-Average-Filter/rtl/g01_moving_average4.sv:33$12'.
+  created $dff cell `$procdff$118' with positive edge clock.
+Creating register for signal `\g01_moving_average4.$memwr$\sample_mem$/home/runner/work/G01-Moving-Average-Filter/G01-Moving-Average-Filter/rtl/g01_moving_average4.sv:35$1_EN' using process `\g01_moving_average4.$proc$/home/runner/work/G01-Moving-Average-Filter/G01-Moving-Average-Filter/rtl/g01_moving_average4.sv:33$12'.
+  created $dff cell `$procdff$119' with positive edge clock.
+Creating register for signal `\g01_moving_average4.$memwr$\sample_mem$/home/runner/work/G01-Moving-Average-Filter/G01-Moving-Average-Filter/rtl/g01_moving_average4.sv:36$2_EN' using process `\g01_moving_average4.$proc$/home/runner/work/G01-Moving-Average-Filter/G01-Moving-Average-Filter/rtl/g01_moving_average4.sv:33$12'.
+  created $dff cell `$procdff$120' with positive edge clock.
+Creating register for signal `\g01_moving_average4.$memwr$\sample_mem$/home/runner/work/G01-Moving-Average-Filter/G01-Moving-Average-Filter/rtl/g01_moving_average4.sv:37$3_EN' using process `\g01_moving_average4.$proc$/home/runner/work/G01-Moving-Average-Filter/G01-Moving-Average-Filter/rtl/g01_moving_average4.sv:33$12'.
+  created $dff cell `$procdff$121' with positive edge clock.
+Creating register for signal `\g01_moving_average4.$memwr$\sample_mem$/home/runner/work/G01-Moving-Average-Filter/G01-Moving-Average-Filter/rtl/g01_moving_average4.sv:38$4_EN' using process `\g01_moving_average4.$proc$/home/runner/work/G01-Moving-Average-Filter/G01-Moving-Average-Filter/rtl/g01_moving_average4.sv:33$12'.
+  created $dff cell `$procdff$122' with positive edge clock.
+Creating register for signal `\g01_moving_average4.$memwr$\sample_mem$/home/runner/work/G01-Moving-Average-Filter/G01-Moving-Average-Filter/rtl/g01_moving_average4.sv:48$5_ADDR' using process `\g01_moving_average4.$proc$/home/runner/work/G01-Moving-Average-Filter/G01-Moving-Average-Filter/rtl/g01_moving_average4.sv:33$12'.
+  created $dff cell `$procdff$123' with positive edge clock.
+Creating register for signal `\g01_moving_average4.$memwr$\sample_mem$/home/runner/work/G01-Moving-Average-Filter/G01-Moving-Average-Filter/rtl/g01_moving_average4.sv:48$5_DATA' using process `\g01_moving_average4.$proc$/home/runner/work/G01-Moving-Average-Filter/G01-Moving-Average-Filter/rtl/g01_moving_average4.sv:33$12'.
+  created $dff cell `$procdff$124' with positive edge clock.
+Creating register for signal `\g01_moving_average4.$memwr$\sample_mem$/home/runner/work/G01-Moving-Average-Filter/G01-Moving-Average-Filter/rtl/g01_moving_average4.sv:48$5_EN' using process `\g01_moving_average4.$proc$/home/runner/work/G01-Moving-Average-Filter/G01-Moving-Average-Filter/rtl/g01_moving_average4.sv:33$12'.
+  created $dff cell `$procdff$125' with positive edge clock.
+
+17. Executing PROC_MEMWR pass (convert process memory writes to cells).
+
+18. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Found and cleaned up 4 empty switches in `\g01_moving_average4.$proc$/home/runner/work/G01-Moving-Average-Filter/G01-Moving-Average-Filter/rtl/g01_moving_average4.sv:33$12'.
+Removing empty process `g01_moving_average4.$proc$/home/runner/work/G01-Moving-Average-Filter/G01-Moving-Average-Filter/rtl/g01_moving_average4.sv:33$12'.
+Found and cleaned up 1 empty switch in `\g01_moving_average4.$proc$/home/runner/work/G01-Moving-Average-Filter/G01-Moving-Average-Filter/rtl/g01_moving_average4.sv:26$7'.
+Removing empty process `g01_moving_average4.$proc$/home/runner/work/G01-Moving-Average-Filter/G01-Moving-Average-Filter/rtl/g01_moving_average4.sv:26$7'.
+Cleaned up 5 empty switches.
+
+19. Executing CHECK pass (checking for obvious problems).
+Checking module g01_moving_average4...
+Found and reported 0 problems.
+
+20. Executing OPT_EXPR pass (perform const folding).
+Optimizing module g01_moving_average4.
+<suppressed ~16 debug messages>
+
+21. Executing FLATTEN pass (flatten design).
+
+22. Executing OPT_EXPR pass (perform const folding).
+Optimizing module g01_moving_average4.
+
+23. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \g01_moving_average4..
+Removed 8 unused cells and 62 unused wires.
+<suppressed ~9 debug messages>
+
+24. Executing OPT_EXPR pass (perform const folding).
+Optimizing module g01_moving_average4.
+
+25. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\g01_moving_average4'.
+Computing hashes of 46 cells of `\g01_moving_average4'.
+Finding duplicate cells in `\g01_moving_average4'.
+Computing hashes of 44 cells of `\g01_moving_average4'.
+Finding duplicate cells in `\g01_moving_average4'.
+<suppressed ~6 debug messages>
+Removed a total of 2 cells.
+
+26. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \g01_moving_average4..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+    dead port 2/2 on $mux $procmux$40.
+    dead port 2/2 on $mux $procmux$46.
+    dead port 2/2 on $mux $procmux$52.
+Removed 3 multiplexer ports.
+<suppressed ~42 debug messages>
+
+27. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \g01_moving_average4.
+    Consolidated identical input bits for $mux cell $procmux$37:
+      Old ports: A=8'00000000, B=8'11111111, Y=$procmux$37_Y
+      New ports: A=1'0, B=1'1, Y=$procmux$37_Y [0]
+      New connections: $procmux$37_Y [7:1] = { $procmux$37_Y [0] $procmux$37_Y [0] $procmux$37_Y [0] $procmux$37_Y [0] $procmux$37_Y [0] $procmux$37_Y [0] $procmux$37_Y [0] }
+    Consolidated identical input bits for $mux cell $procmux$63:
+      Old ports: A=8'11111111, B=8'00000000, Y=$0$memwr$\sample_mem$/home/runner/work/G01-Moving-Average-Filter/G01-Moving-Average-Filter/rtl/g01_moving_average4.sv:38$4_EN[7:0]$16
+      New ports: A=1'1, B=1'0, Y=$0$memwr$\sample_mem$/home/runner/work/G01-Moving-Average-Filter/G01-Moving-Average-Filter/rtl/g01_moving_average4.sv:38$4_EN[7:0]$16 [0]
+      New connections: $0$memwr$\sample_mem$/home/runner/work/G01-Moving-Average-Filter/G01-Moving-Average-Filter/rtl/g01_moving_average4.sv:38$4_EN[7:0]$16 [7:1] = { $0$memwr$\sample_mem$/home/runner/work/G01-Moving-Average-Filter/G01-Moving-Average-Filter/rtl/g01_moving_average4.sv:38$4_EN[7:0]$16 [0] $0$memwr$\sample_mem$/home/runner/work/G01-Moving-Average-Filter/G01-Moving-Average-Filter/rtl/g01_moving_average4.sv:38$4_EN[7:0]$16 [0] $0$memwr$\sample_mem$/home/runner/work/G01-Moving-Average-Filter/G01-Moving-Average-Filter/rtl/g01_moving_average4.sv:38$4_EN[7:0]$16 [0] $0$memwr$\sample_mem$/home/runner/work/G01-Moving-Average-Filter/G01-Moving-Average-Filter/rtl/g01_moving_average4.sv:38$4_EN[7:0]$16 [0] $0$memwr$\sample_mem$/home/runner/work/G01-Moving-Average-Filter/G01-Moving-Average-Filter/rtl/g01_moving_average4.sv:38$4_EN[7:0]$16 [0] $0$memwr$\sample_mem$/home/runner/work/G01-Moving-Average-Filter/G01-Moving-Average-Filter/rtl/g01_moving_average4.sv:38$4_EN[7:0]$16 [0] $0$memwr$\sample_mem$/home/runner/work/G01-Moving-Average-Filter/G01-Moving-Average-Filter/rtl/g01_moving_average4.sv:38$4_EN[7:0]$16 [0] }
+    Consolidated identical input bits for $mux cell $procmux$66:
+      Old ports: A=8'11111111, B=8'00000000, Y=$0$memwr$\sample_mem$/home/runner/work/G01-Moving-Average-Filter/G01-Moving-Average-Filter/rtl/g01_moving_average4.sv:37$3_EN[7:0]$15
+      New ports: A=1'1, B=1'0, Y=$0$memwr$\sample_mem$/home/runner/work/G01-Moving-Average-Filter/G01-Moving-Average-Filter/rtl/g01_moving_average4.sv:37$3_EN[7:0]$15 [0]
+      New connections: $0$memwr$\sample_mem$/home/runner/work/G01-Moving-Average-Filter/G01-Moving-Average-Filter/rtl/g01_moving_average4.sv:37$3_EN[7:0]$15 [7:1] = { $0$memwr$\sample_mem$/home/runner/work/G01-Moving-Average-Filter/G01-Moving-Average-Filter/rtl/g01_moving_average4.sv:37$3_EN[7:0]$15 [0] $0$memwr$\sample_mem$/home/runner/work/G01-Moving-Average-Filter/G01-Moving-Average-Filter/rtl/g01_moving_average4.sv:37$3_EN[7:0]$15 [0] $0$memwr$\sample_mem$/home/runner/work/G01-Moving-Average-Filter/G01-Moving-Average-Filter/rtl/g01_moving_average4.sv:37$3_EN[7:0]$15 [0] $0$memwr$\sample_mem$/home/runner/work/G01-Moving-Average-Filter/G01-Moving-Average-Filter/rtl/g01_moving_average4.sv:37$3_EN[7:0]$15 [0] $0$memwr$\sample_mem$/home/runner/work/G01-Moving-Average-Filter/G01-Moving-Average-Filter/rtl/g01_moving_average4.sv:37$3_EN[7:0]$15 [0] $0$memwr$\sample_mem$/home/runner/work/G01-Moving-Average-Filter/G01-Moving-Average-Filter/rtl/g01_moving_average4.sv:37$3_EN[7:0]$15 [0] $0$memwr$\sample_mem$/home/runner/work/G01-Moving-Average-Filter/G01-Moving-Average-Filter/rtl/g01_moving_average4.sv:37$3_EN[7:0]$15 [0] }
+    Consolidated identical input bits for $mux cell $procmux$69:
+      Old ports: A=8'11111111, B=8'00000000, Y=$0$memwr$\sample_mem$/home/runner/work/G01-Moving-Average-Filter/G01-Moving-Average-Filter/rtl/g01_moving_average4.sv:36$2_EN[7:0]$14
+      New ports: A=1'1, B=1'0, Y=$0$memwr$\sample_mem$/home/runner/work/G01-Moving-Average-Filter/G01-Moving-Average-Filter/rtl/g01_moving_average4.sv:36$2_EN[7:0]$14 [0]
+      New connections: $0$memwr$\sample_mem$/home/runner/work/G01-Moving-Average-Filter/G01-Moving-Average-Filter/rtl/g01_moving_average4.sv:36$2_EN[7:0]$14 [7:1] = { $0$memwr$\sample_mem$/home/runner/work/G01-Moving-Average-Filter/G01-Moving-Average-Filter/rtl/g01_moving_average4.sv:36$2_EN[7:0]$14 [0] $0$memwr$\sample_mem$/home/runner/work/G01-Moving-Average-Filter/G01-Moving-Average-Filter/rtl/g01_moving_average4.sv:36$2_EN[7:0]$14 [0] $0$memwr$\sample_mem$/home/runner/work/G01-Moving-Average-Filter/G01-Moving-Average-Filter/rtl/g01_moving_average4.sv:36$2_EN[7:0]$14 [0] $0$memwr$\sample_mem$/home/runner/work/G01-Moving-Average-Filter/G01-Moving-Average-Filter/rtl/g01_moving_average4.sv:36$2_EN[7:0]$14 [0] $0$memwr$\sample_mem$/home/runner/work/G01-Moving-Average-Filter/G01-Moving-Average-Filter/rtl/g01_moving_average4.sv:36$2_EN[7:0]$14 [0] $0$memwr$\sample_mem$/home/runner/work/G01-Moving-Average-Filter/G01-Moving-Average-Filter/rtl/g01_moving_average4.sv:36$2_EN[7:0]$14 [0] $0$memwr$\sample_mem$/home/runner/work/G01-Moving-Average-Filter/G01-Moving-Average-Filter/rtl/g01_moving_average4.sv:36$2_EN[7:0]$14 [0] }
+    Consolidated identical input bits for $mux cell $procmux$72:
+      Old ports: A=8'11111111, B=8'00000000, Y=$0$memwr$\sample_mem$/home/runner/work/G01-Moving-Average-Filter/G01-Moving-Average-Filter/rtl/g01_moving_average4.sv:35$1_EN[7:0]$13
+      New ports: A=1'1, B=1'0, Y=$0$memwr$\sample_mem$/home/runner/work/G01-Moving-Average-Filter/G01-Moving-Average-Filter/rtl/g01_moving_average4.sv:35$1_EN[7:0]$13 [0]
+      New connections: $0$memwr$\sample_mem$/home/runner/work/G01-Moving-Average-Filter/G01-Moving-Average-Filter/rtl/g01_moving_average4.sv:35$1_EN[7:0]$13 [7:1] = { $0$memwr$\sample_mem$/home/runner/work/G01-Moving-Average-Filter/G01-Moving-Average-Filter/rtl/g01_moving_average4.sv:35$1_EN[7:0]$13 [0] $0$memwr$\sample_mem$/home/runner/work/G01-Moving-Average-Filter/G01-Moving-Average-Filter/rtl/g01_moving_average4.sv:35$1_EN[7:0]$13 [0] $0$memwr$\sample_mem$/home/runner/work/G01-Moving-Average-Filter/G01-Moving-Average-Filter/rtl/g01_moving_average4.sv:35$1_EN[7:0]$13 [0] $0$memwr$\sample_mem$/home/runner/work/G01-Moving-Average-Filter/G01-Moving-Average-Filter/rtl/g01_moving_average4.sv:35$1_EN[7:0]$13 [0] $0$memwr$\sample_mem$/home/runner/work/G01-Moving-Average-Filter/G01-Moving-Average-Filter/rtl/g01_moving_average4.sv:35$1_EN[7:0]$13 [0] $0$memwr$\sample_mem$/home/runner/work/G01-Moving-Average-Filter/G01-Moving-Average-Filter/rtl/g01_moving_average4.sv:35$1_EN[7:0]$13 [0] $0$memwr$\sample_mem$/home/runner/work/G01-Moving-Average-Filter/G01-Moving-Average-Filter/rtl/g01_moving_average4.sv:35$1_EN[7:0]$13 [0] }
+  Optimizing cells in module \g01_moving_average4.
+    Consolidated identical input bits for $mux cell $procmux$75:
+      Old ports: A=8'00000000, B=$2$memwr$\sample_mem$/home/runner/work/G01-Moving-Average-Filter/G01-Moving-Average-Filter/rtl/g01_moving_average4.sv:48$5_EN[7:0]$30, Y=$0$memwr$\sample_mem$/home/runner/work/G01-Moving-Average-Filter/G01-Moving-Average-Filter/rtl/g01_moving_average4.sv:48$5_EN[7:0]$19
+      New ports: A=1'0, B=$procmux$37_Y [0], Y=$0$memwr$\sample_mem$/home/runner/work/G01-Moving-Average-Filter/G01-Moving-Average-Filter/rtl/g01_moving_average4.sv:48$5_EN[7:0]$19 [0]
+      New connections: $0$memwr$\sample_mem$/home/runner/work/G01-Moving-Average-Filter/G01-Moving-Average-Filter/rtl/g01_moving_average4.sv:48$5_EN[7:0]$19 [7:1] = { $0$memwr$\sample_mem$/home/runner/work/G01-Moving-Average-Filter/G01-Moving-Average-Filter/rtl/g01_moving_average4.sv:48$5_EN[7:0]$19 [0] $0$memwr$\sample_mem$/home/runner/work/G01-Moving-Average-Filter/G01-Moving-Average-Filter/rtl/g01_moving_average4.sv:48$5_EN[7:0]$19 [0] $0$memwr$\sample_mem$/home/runner/work/G01-Moving-Average-Filter/G01-Moving-Average-Filter/rtl/g01_moving_average4.sv:48$5_EN[7:0]$19 [0] $0$memwr$\sample_mem$/home/runner/work/G01-Moving-Average-Filter/G01-Moving-Average-Filter/rtl/g01_moving_average4.sv:48$5_EN[7:0]$19 [0] $0$memwr$\sample_mem$/home/runner/work/G01-Moving-Average-Filter/G01-Moving-Average-Filter/rtl/g01_moving_average4.sv:48$5_EN[7:0]$19 [0] $0$memwr$\sample_mem$/home/runner/work/G01-Moving-Average-Filter/G01-Moving-Average-Filter/rtl/g01_moving_average4.sv:48$5_EN[7:0]$19 [0] $0$memwr$\sample_mem$/home/runner/work/G01-Moving-Average-Filter/G01-Moving-Average-Filter/rtl/g01_moving_average4.sv:48$5_EN[7:0]$19 [0] }
+  Optimizing cells in module \g01_moving_average4.
+Performed a total of 6 changes.
+
+28. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\g01_moving_average4'.
+Computing hashes of 41 cells of `\g01_moving_average4'.
+Finding duplicate cells in `\g01_moving_average4'.
+Computing hashes of 38 cells of `\g01_moving_average4'.
+Finding duplicate cells in `\g01_moving_average4'.
+<suppressed ~9 debug messages>
+Removed a total of 3 cells.
+
+29. Executing OPT_DFF pass (perform DFF optimizations).
+
+30. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \g01_moving_average4..
+Removed 0 unused cells and 8 unused wires.
+<suppressed ~1 debug messages>
+
+31. Executing OPT_EXPR pass (perform const folding).
+Optimizing module g01_moving_average4.
+
+32. Rerunning OPT passes. (Maybe there is more to do…)
+
+33. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \g01_moving_average4..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~33 debug messages>
+
+34. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \g01_moving_average4.
+Performed a total of 0 changes.
+
+35. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\g01_moving_average4'.
+Computing hashes of 38 cells of `\g01_moving_average4'.
+Finding duplicate cells in `\g01_moving_average4'.
+Removed a total of 0 cells.
+
+36. Executing OPT_DFF pass (perform DFF optimizations).
+
+37. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \g01_moving_average4..
+
+38. Executing OPT_EXPR pass (perform const folding).
+Optimizing module g01_moving_average4.
+
+39. Executing FSM pass (extract and optimize FSM).
+
+39.1. Executing FSM_DETECT pass (finding FSMs in design).
+
+39.2. Executing FSM_EXTRACT pass (extracting FSM from design).
+
+39.3. Executing FSM_OPT pass (simple optimizations of FSMs).
+
+39.4. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \g01_moving_average4..
+
+39.5. Executing FSM_OPT pass (simple optimizations of FSMs).
+
+39.6. Executing FSM_RECODE pass (re-assigning FSM state encoding).
+
+39.7. Executing FSM_INFO pass (dumping all available information on FSM cells).
+
+39.8. Executing FSM_MAP pass (mapping FSMs to basic logic).
+
+40. Executing OPT_EXPR pass (perform const folding).
+Optimizing module g01_moving_average4.
+
+41. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\g01_moving_average4'.
+Computing hashes of 38 cells of `\g01_moving_average4'.
+Finding duplicate cells in `\g01_moving_average4'.
+Removed a total of 0 cells.
+
+42. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \g01_moving_average4..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~33 debug messages>
+
+43. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \g01_moving_average4.
+Performed a total of 0 changes.
+
+44. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\g01_moving_average4'.
+Computing hashes of 38 cells of `\g01_moving_average4'.
+Finding duplicate cells in `\g01_moving_average4'.
+Removed a total of 0 cells.
+
+45. Executing OPT_DFF pass (perform DFF optimizations).
+Adding SRST signal on $procdff$118 ($dff) from module g01_moving_average4 (D = $procmux$84_Y, Q = \sum_q, rval = 10'0000000000).
+Adding EN signal on $auto$ff.cc:337:slice$131 ($sdff) from module g01_moving_average4 (D = \sum_next, Q = \sum_q).
+Adding SRST signal on $procdff$117 ($dff) from module g01_moving_average4 (D = $procmux$92_Y, Q = \count_q, rval = 3'000).
+Adding EN signal on $auto$ff.cc:337:slice$133 ($sdff) from module g01_moving_average4 (D = $add$/home/runner/work/G01-Moving-Average-Filter/G01-Moving-Average-Filter/rtl/g01_moving_average4.sv:52$32_Y, Q = \count_q).
+Adding SRST signal on $procdff$116 ($dff) from module g01_moving_average4 (D = $procmux$98_Y, Q = \wr_ptr, rval = 2'00).
+Adding EN signal on $auto$ff.cc:337:slice$137 ($sdff) from module g01_moving_average4 (D = $add$/home/runner/work/G01-Moving-Average-Filter/G01-Moving-Average-Filter/rtl/g01_moving_average4.sv:54$33_Y, Q = \wr_ptr).
+Adding SRST signal on $procdff$115 ($dff) from module g01_moving_average4 (D = $procmux$106_Y, Q = \avg_out, rval = 8'00000000).
+Adding EN signal on $auto$ff.cc:337:slice$139 ($sdff) from module g01_moving_average4 (D = \sum_next [9:2], Q = \avg_out).
+Adding SRST signal on $procdff$114 ($dff) from module g01_moving_average4 (D = $procmux$55_Y, Q = \valid_out, rval = 1'0).
+
+46. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \g01_moving_average4..
+Removed 12 unused cells and 12 unused wires.
+<suppressed ~13 debug messages>
+
+47. Executing OPT_EXPR pass (perform const folding).
+Optimizing module g01_moving_average4.
+
+48. Rerunning OPT passes. (Maybe there is more to do…)
+
+49. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \g01_moving_average4..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~15 debug messages>
+
+50. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \g01_moving_average4.
+Performed a total of 0 changes.
+
+51. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\g01_moving_average4'.
+Computing hashes of 29 cells of `\g01_moving_average4'.
+Finding duplicate cells in `\g01_moving_average4'.
+Removed a total of 0 cells.
+
+52. Executing OPT_DFF pass (perform DFF optimizations).
+
+53. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \g01_moving_average4..
+
+54. Executing OPT_EXPR pass (perform const folding).
+Optimizing module g01_moving_average4.
+
+55. Executing WREDUCE pass (reducing word size of cells).
+Removed top 30 address bits (of 32) from memory init port g01_moving_average4.$auto$proc_memwr.cc:45:proc_memwr$126 (sample_mem).
+Removed top 30 address bits (of 32) from memory init port g01_moving_average4.$auto$proc_memwr.cc:45:proc_memwr$127 (sample_mem).
+Removed top 30 address bits (of 32) from memory init port g01_moving_average4.$auto$proc_memwr.cc:45:proc_memwr$128 (sample_mem).
+Removed top 30 address bits (of 32) from memory init port g01_moving_average4.$auto$proc_memwr.cc:45:proc_memwr$129 (sample_mem).
+Removed top 2 bits (of 10) from port B of cell g01_moving_average4.$add$/home/runner/work/G01-Moving-Average-Filter/G01-Moving-Average-Filter/rtl/g01_moving_average4.sv:28$9 ($add).
+Removed top 2 bits (of 10) from port B of cell g01_moving_average4.$sub$/home/runner/work/G01-Moving-Average-Filter/G01-Moving-Average-Filter/rtl/g01_moving_average4.sv:30$11 ($sub).
+Removed top 2 bits (of 3) from port B of cell g01_moving_average4.$add$/home/runner/work/G01-Moving-Average-Filter/G01-Moving-Average-Filter/rtl/g01_moving_average4.sv:52$32 ($add).
+Removed top 1 bits (of 2) from port B of cell g01_moving_average4.$add$/home/runner/work/G01-Moving-Average-Filter/G01-Moving-Average-Filter/rtl/g01_moving_average4.sv:54$33 ($add).
+Removed top 1 bits (of 3) from port B of cell g01_moving_average4.$ge$/home/runner/work/G01-Moving-Average-Filter/G01-Moving-Average-Filter/rtl/g01_moving_average4.sv:56$34 ($ge).
+Removed top 2 bits (of 10) from wire g01_moving_average4.oldest_ext.
+Removed top 2 bits (of 10) from wire g01_moving_average4.sum_q.
+
+56. Executing PEEPOPT pass (run peephole optimizers).
+
+57. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \g01_moving_average4..
+Removed 0 unused cells and 1 unused wires.
+<suppressed ~1 debug messages>
+
+58. Executing ALUMACC pass (create $alu and $macc cells).
+Extracting $alu and $macc cells in module g01_moving_average4:
+  creating $macc model for $add$/home/runner/work/G01-Moving-Average-Filter/G01-Moving-Average-Filter/rtl/g01_moving_average4.sv:28$9 ($add).
+  creating $macc model for $add$/home/runner/work/G01-Moving-Average-Filter/G01-Moving-Average-Filter/rtl/g01_moving_average4.sv:52$32 ($add).
+  creating $macc model for $add$/home/runner/work/G01-Moving-Average-Filter/G01-Moving-Average-Filter/rtl/g01_moving_average4.sv:54$33 ($add).
+  creating $macc model for $sub$/home/runner/work/G01-Moving-Average-Filter/G01-Moving-Average-Filter/rtl/g01_moving_average4.sv:30$11 ($sub).
+  creating $alu model for $macc $sub$/home/runner/work/G01-Moving-Average-Filter/G01-Moving-Average-Filter/rtl/g01_moving_average4.sv:30$11.
+  creating $alu model for $macc $add$/home/runner/work/G01-Moving-Average-Filter/G01-Moving-Average-Filter/rtl/g01_moving_average4.sv:54$33.
+  creating $alu model for $macc $add$/home/runner/work/G01-Moving-Average-Filter/G01-Moving-Average-Filter/rtl/g01_moving_average4.sv:52$32.
+  creating $alu model for $macc $add$/home/runner/work/G01-Moving-Average-Filter/G01-Moving-Average-Filter/rtl/g01_moving_average4.sv:28$9.
+  creating $alu model for $ge$/home/runner/work/G01-Moving-Average-Filter/G01-Moving-Average-Filter/rtl/g01_moving_average4.sv:56$34 ($ge): new $alu
+  creating $alu model for $lt$/home/runner/work/G01-Moving-Average-Filter/G01-Moving-Average-Filter/rtl/g01_moving_average4.sv:27$8 ($lt): new $alu
+  creating $alu cell for $lt$/home/runner/work/G01-Moving-Average-Filter/G01-Moving-Average-Filter/rtl/g01_moving_average4.sv:27$8: $auto$alumacc.cc:512:replace_alu$150
+  creating $alu cell for $ge$/home/runner/work/G01-Moving-Average-Filter/G01-Moving-Average-Filter/rtl/g01_moving_average4.sv:56$34: $auto$alumacc.cc:512:replace_alu$155
+  creating $alu cell for $add$/home/runner/work/G01-Moving-Average-Filter/G01-Moving-Average-Filter/rtl/g01_moving_average4.sv:28$9: $auto$alumacc.cc:512:replace_alu$168
+  creating $alu cell for $add$/home/runner/work/G01-Moving-Average-Filter/G01-Moving-Average-Filter/rtl/g01_moving_average4.sv:52$32: $auto$alumacc.cc:512:replace_alu$171
+  creating $alu cell for $add$/home/runner/work/G01-Moving-Average-Filter/G01-Moving-Average-Filter/rtl/g01_moving_average4.sv:54$33: $auto$alumacc.cc:512:replace_alu$174
+  creating $alu cell for $sub$/home/runner/work/G01-Moving-Average-Filter/G01-Moving-Average-Filter/rtl/g01_moving_average4.sv:30$11: $auto$alumacc.cc:512:replace_alu$177
+  created 6 $alu and 0 $macc cells.
+
+59. Executing SHARE pass (SAT-based resource sharing).
+
+60. Executing OPT_EXPR pass (perform const folding).
+Optimizing module g01_moving_average4.
+<suppressed ~1 debug messages>
+
+61. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\g01_moving_average4'.
+Computing hashes of 35 cells of `\g01_moving_average4'.
+Finding duplicate cells in `\g01_moving_average4'.
+Removed a total of 0 cells.
+
+62. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \g01_moving_average4..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~15 debug messages>
+
+63. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \g01_moving_average4.
+Performed a total of 0 changes.
+
+64. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\g01_moving_average4'.
+Computing hashes of 35 cells of `\g01_moving_average4'.
+Finding duplicate cells in `\g01_moving_average4'.
+Removed a total of 0 cells.
+
+65. Executing OPT_DFF pass (perform DFF optimizations).
+
+66. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \g01_moving_average4..
+Removed 0 unused cells and 2 unused wires.
+<suppressed ~1 debug messages>
+
+67. Executing OPT_EXPR pass (perform const folding).
+Optimizing module g01_moving_average4.
+
+68. Rerunning OPT passes. (Maybe there is more to do…)
+
+69. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \g01_moving_average4..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~15 debug messages>
+
+70. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \g01_moving_average4.
+Performed a total of 0 changes.
+
+71. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\g01_moving_average4'.
+Computing hashes of 35 cells of `\g01_moving_average4'.
+Finding duplicate cells in `\g01_moving_average4'.
+Removed a total of 0 cells.
+
+72. Executing OPT_DFF pass (perform DFF optimizations).
+
+73. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \g01_moving_average4..
+
+74. Executing OPT_EXPR pass (perform const folding).
+Optimizing module g01_moving_average4.
+
+75. Executing MEMORY pass.
+
+75.1. Executing OPT_MEM pass (optimize memories).
+Performed a total of 0 transformations.
+
+75.2. Executing OPT_MEM_PRIORITY pass (removing unnecessary memory write priority relations).
+Performed a total of 6 transformations.
+
+75.3. Executing OPT_MEM_FEEDBACK pass (finding memory read-to-write feedback paths).
+  Analyzing g01_moving_average4.sample_mem write port 0.
+  Analyzing g01_moving_average4.sample_mem write port 1.
+  Analyzing g01_moving_average4.sample_mem write port 2.
+  Analyzing g01_moving_average4.sample_mem write port 3.
+  Analyzing g01_moving_average4.sample_mem write port 4.
+
+75.4. Executing MEMORY_BMUX2ROM pass (converting muxes to ROMs).
+
+75.5. Executing MEMORY_DFF pass (merging $dff cells to $memrd).
+Checking read port `\sample_mem'[0] in module `\g01_moving_average4': no output FF found.
+Checking read port address `\sample_mem'[0] in module `\g01_moving_average4': merged address FF to cell.
+
+75.6. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \g01_moving_average4..
+
+75.7. Executing MEMORY_SHARE pass (consolidating $memrd/$memwr cells).
+Consolidating write ports of memory g01_moving_average4.sample_mem by address:
+  Merging ports 0, 1 (address 2'00).
+  Merging ports 0, 2 (address 2'00).
+Consolidating write ports of memory g01_moving_average4.sample_mem by address:
+Consolidating write ports of memory g01_moving_average4.sample_mem using sat-based resource sharing:
+  Checking group clocked with posedge \clk, width 8: ports 1, 2.
+  Common input cone for all EN signals: 3 cells.
+  Size of unconstrained SAT problem: 23 variables, 53 clauses
+  Merging port 2 into port 1.
+
+75.8. Executing OPT_MEM_WIDEN pass (optimize memories where all ports are wide).
+Performed a total of 0 transformations.
+
+75.9. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \g01_moving_average4..
+
+75.10. Executing MEMORY_COLLECT pass (generating $mem cells).
+
+76. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \g01_moving_average4..
+
+77. Executing OPT_EXPR pass (perform const folding).
+Optimizing module g01_moving_average4.
+<suppressed ~10 debug messages>
+
+78. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\g01_moving_average4'.
+Computing hashes of 31 cells of `\g01_moving_average4'.
+Finding duplicate cells in `\g01_moving_average4'.
+Removed a total of 0 cells.
+
+79. Executing OPT_DFF pass (perform DFF optimizations).
+
+80. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \g01_moving_average4..
+Removed 2 unused cells and 9 unused wires.
+<suppressed ~3 debug messages>
+
+81. Executing MEMORY_MAP pass (converting memories to logic and flip-flops).
+Mapping memory \sample_mem in module \g01_moving_average4:
+  created 4 $dff cells and 0 static cells of width 8.
+Extracted addr FF from read port 0 of g01_moving_average4.sample_mem: $\sample_mem$rdreg[0]
+  read interface: 1 $dff and 3 $mux cells.
+  write interface: 8 write mux blocks.
+
+82. Executing OPT_EXPR pass (perform const folding).
+Optimizing module g01_moving_average4.
+<suppressed ~13 debug messages>
+
+83. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\g01_moving_average4'.
+Computing hashes of 53 cells of `\g01_moving_average4'.
+Finding duplicate cells in `\g01_moving_average4'.
+Removed a total of 0 cells.
+
+84. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \g01_moving_average4..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+      Replacing known input bits on port B of cell $auto$memory_share.cc:454:consolidate_wr_using_sat$193: $0$memwr$\sample_mem$/home/runner/work/G01-Moving-Average-Filter/G01-Moving-Average-Filter/rtl/g01_moving_average4.sv:48$5_EN[7:0]$19 [7] -> 1'1
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~30 debug messages>
+
+85. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \g01_moving_average4.
+Performed a total of 0 changes.
+
+86. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\g01_moving_average4'.
+Computing hashes of 53 cells of `\g01_moving_average4'.
+Finding duplicate cells in `\g01_moving_average4'.
+Removed a total of 0 cells.
+
+87. Executing OPT_SHARE pass.
+
+88. Executing OPT_DFF pass (perform DFF optimizations).
+Adding SRST signal on $\sample_mem$rdreg[0] ($dff) from module g01_moving_average4 (D = $auto$rtlil.cc:3472:Mux$183, Q = $\sample_mem$rdreg[0]$q, rval = 2'00).
+
+89. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \g01_moving_average4..
+Removed 1 unused cells and 16 unused wires.
+<suppressed ~2 debug messages>
+
+90. Executing OPT_EXPR pass (perform const folding).
+Optimizing module g01_moving_average4.
+<suppressed ~1 debug messages>
+
+91. Rerunning OPT passes. (Maybe there is more to do…)
+
+92. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \g01_moving_average4..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~27 debug messages>
+
+93. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \g01_moving_average4.
+Performed a total of 0 changes.
+
+94. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\g01_moving_average4'.
+Computing hashes of 52 cells of `\g01_moving_average4'.
+Finding duplicate cells in `\g01_moving_average4'.
+Removed a total of 0 cells.
+
+95. Executing OPT_SHARE pass.
+
+96. Executing OPT_DFF pass (perform DFF optimizations).
+Adding EN signal on $memory\sample_mem[3]$204 ($dff) from module g01_moving_average4 (D = $auto$rtlil.cc:3472:Mux$191, Q = \sample_mem[3]).
+Adding EN signal on $memory\sample_mem[2]$202 ($dff) from module g01_moving_average4 (D = $memory\sample_mem$wrmux[2][1][0]$y$254, Q = \sample_mem[2]).
+Adding EN signal on $memory\sample_mem[1]$200 ($dff) from module g01_moving_average4 (D = $memory\sample_mem$wrmux[1][1][0]$y$242, Q = \sample_mem[1]).
+Adding EN signal on $memory\sample_mem[0]$198 ($dff) from module g01_moving_average4 (D = $memory\sample_mem$wrmux[0][1][0]$y$230, Q = \sample_mem[0]).
+
+97. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \g01_moving_average4..
+Removed 1 unused cells and 1 unused wires.
+<suppressed ~2 debug messages>
+
+98. Executing OPT_EXPR pass (perform const folding).
+Optimizing module g01_moving_average4.
+<suppressed ~3 debug messages>
+
+99. Rerunning OPT passes. (Maybe there is more to do…)
+
+100. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \g01_moving_average4..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~18 debug messages>
+
+101. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \g01_moving_average4.
+Performed a total of 0 changes.
+
+102. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\g01_moving_average4'.
+Computing hashes of 51 cells of `\g01_moving_average4'.
+Finding duplicate cells in `\g01_moving_average4'.
+Removed a total of 0 cells.
+
+103. Executing OPT_SHARE pass.
+
+104. Executing OPT_DFF pass (perform DFF optimizations).
+Adding SRST signal on $auto$ff.cc:337:slice$273 ($dffe) from module g01_moving_average4 (D = $auto$rtlil.cc:3472:Mux$191, Q = \sample_mem[0], rval = 8'00000000).
+Adding SRST signal on $auto$ff.cc:337:slice$270 ($dffe) from module g01_moving_average4 (D = $auto$rtlil.cc:3472:Mux$191, Q = \sample_mem[1], rval = 8'00000000).
+Adding SRST signal on $auto$ff.cc:337:slice$267 ($dffe) from module g01_moving_average4 (D = $auto$rtlil.cc:3472:Mux$191, Q = \sample_mem[2], rval = 8'00000000).
+
+105. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \g01_moving_average4..
+Removed 3 unused cells and 6 unused wires.
+<suppressed ~4 debug messages>
+
+106. Executing OPT_EXPR pass (perform const folding).
+Optimizing module g01_moving_average4.
+
+107. Rerunning OPT passes. (Maybe there is more to do…)
+
+108. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \g01_moving_average4..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~12 debug messages>
+
+109. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \g01_moving_average4.
+Performed a total of 0 changes.
+
+110. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\g01_moving_average4'.
+Computing hashes of 48 cells of `\g01_moving_average4'.
+Finding duplicate cells in `\g01_moving_average4'.
+Removed a total of 0 cells.
+
+111. Executing OPT_SHARE pass.
+
+112. Executing OPT_DFF pass (perform DFF optimizations).
+
+113. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \g01_moving_average4..
+
+114. Executing OPT_EXPR pass (perform const folding).
+Optimizing module g01_moving_average4.
+
+115. Executing TECHMAP pass (map to technology primitives).
+
+115.1. Executing Verilog-2005 frontend: /nix/store/f1q0w7rd0a4ny4hqvfxlhs4cmariidcy-yosys-0.62/bin/../share/yosys/techmap.v
+Parsing Verilog input from `/nix/store/f1q0w7rd0a4ny4hqvfxlhs4cmariidcy-yosys-0.62/bin/../share/yosys/techmap.v' to AST representation.
+Generating RTLIL representation for module `\_90_simplemap_bool_ops'.
+Generating RTLIL representation for module `\_90_simplemap_reduce_ops'.
+Generating RTLIL representation for module `\_90_simplemap_logic_ops'.
+Generating RTLIL representation for module `\_90_simplemap_compare_ops'.
+Generating RTLIL representation for module `\_90_simplemap_various'.
+Generating RTLIL representation for module `\_90_simplemap_registers'.
+Generating RTLIL representation for module `\_90_shift_ops_shr_shl_sshl_sshr'.
+Generating RTLIL representation for module `\_90_shift_shiftx'.
+Generating RTLIL representation for module `\_90_fa'.
+Generating RTLIL representation for module `\_90_lcu_brent_kung'.
+Generating RTLIL representation for module `\_90_alu'.
+Generating RTLIL representation for module `\_90_macc'.
+Generating RTLIL representation for module `\_90_alumacc'.
+Generating RTLIL representation for module `$__div_mod_u'.
+Generating RTLIL representation for module `$__div_mod_trunc'.
+Generating RTLIL representation for module `\_90_div'.
+Generating RTLIL representation for module `\_90_mod'.
+Generating RTLIL representation for module `$__div_mod_floor'.
+Generating RTLIL representation for module `\_90_divfloor'.
+Generating RTLIL representation for module `\_90_modfloor'.
+Generating RTLIL representation for module `\_90_pow'.
+Generating RTLIL representation for module `\_90_pmux'.
+Generating RTLIL representation for module `\_90_demux'.
+Generating RTLIL representation for module `\_90_lut'.
+Generating RTLIL representation for module `$connect'.
+Generating RTLIL representation for module `$input_port'.
+Successfully finished Verilog frontend.
+
+115.2. Continuing TECHMAP pass.
+Using extmapper simplemap for cells of type $sdffce.
+Using extmapper simplemap for cells of type $ne.
+Using extmapper simplemap for cells of type $dffe.
+Using extmapper simplemap for cells of type $sdff.
+Using extmapper simplemap for cells of type $and.
+Using extmapper simplemap for cells of type $not.
+Using extmapper simplemap for cells of type $or.
+Using extmapper simplemap for cells of type $mux.
+Using template $paramod$78648aff6d035ceca1e51be5292d8e9748cdc2be\_90_alu for cells of type $alu.
+Using template $paramod$0bf21d6ba6357507623b189abbc1d6f284d75c81\_90_alu for cells of type $alu.
+Using template $paramod$175e67c02b86e96b1288b9dc100122520d7240d8\_90_alu for cells of type $alu.
+Using template $paramod$3ef7d3dd227da7627a99c5e5a6a4deb817573e39\_90_alu for cells of type $alu.
+Using extmapper simplemap for cells of type $reduce_or.
+Using extmapper simplemap for cells of type $reduce_and.
+Using template $paramod$2116a631f856d4d4902c2618dca73dafa3b8c9c0\_90_alu for cells of type $alu.
+Using template $paramod$fc972a7a46956c1788f3cb5257b53c8f1df2d0cc\_90_alu for cells of type $alu.
+Using extmapper simplemap for cells of type $sdffe.
+Using extmapper simplemap for cells of type $xor.
+Using template $paramod\_90_fa\WIDTH=32'00000000000000000000000000001010 for cells of type $fa.
+Using template $paramod\_90_lcu_brent_kung\WIDTH=32'00000000000000000000000000001010 for cells of type $lcu.
+Using extmapper simplemap for cells of type $pos.
+Using template $paramod\_90_fa\WIDTH=32'00000000000000000000000000000010 for cells of type $fa.
+Using template $paramod\_90_lcu_brent_kung\WIDTH=32'00000000000000000000000000000010 for cells of type $lcu.
+Using template $paramod\_90_fa\WIDTH=32'00000000000000000000000000000011 for cells of type $fa.
+Using template $paramod\_90_lcu_brent_kung\WIDTH=32'00000000000000000000000000000011 for cells of type $lcu.
+Using template $paramod\_90_fa\WIDTH=32'00000000000000000000000000000001 for cells of type $fa.
+Using template $paramod\_90_lcu_brent_kung\WIDTH=32'00000000000000000000000000000001 for cells of type $lcu.
+No more expansions possible.
+<suppressed ~887 debug messages>
+
+116. Executing OPT_EXPR pass (perform const folding).
+Optimizing module g01_moving_average4.
+<suppressed ~185 debug messages>
+
+117. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\g01_moving_average4'.
+Computing hashes of 288 cells of `\g01_moving_average4'.
+Finding duplicate cells in `\g01_moving_average4'.
+Computing hashes of 275 cells of `\g01_moving_average4'.
+Finding duplicate cells in `\g01_moving_average4'.
+Computing hashes of 274 cells of `\g01_moving_average4'.
+Finding duplicate cells in `\g01_moving_average4'.
+<suppressed ~42 debug messages>
+Removed a total of 14 cells.
+
+118. Executing OPT_DFF pass (perform DFF optimizations).
+
+119. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \g01_moving_average4..
+Removed 22 unused cells and 281 unused wires.
+<suppressed ~23 debug messages>
+
+120. Executing OPT_EXPR pass (perform const folding).
+Optimizing module g01_moving_average4.
+
+121. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\g01_moving_average4'.
+Computing hashes of 252 cells of `\g01_moving_average4'.
+Finding duplicate cells in `\g01_moving_average4'.
+Removed a total of 0 cells.
+
+122. Executing OPT_DFF pass (perform DFF optimizations).
+
+123. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \g01_moving_average4..
+
+124. Executing ABC pass (technology mapping using ABC).
+
+124.1. Extracting gate netlist of module `\g01_moving_average4' to `<abc-temp-dir>/input.blif'..
+
+124.1.1. Executed ABC.
+Extracted 194 gates and 255 wires to a netlist network with 59 inputs and 36 outputs.
+Running ABC script: <abc-temp-dir>/abc.script
+ABC: ======== ABC command line "source <abc-temp-dir>/abc.script"
+ABC: + read_blif <abc-temp-dir>/input.blif 
+ABC: + read_library /tmp/yosys-abc-9QB7RH/stdcells.genlib 
+ABC: + strash 
+ABC: + dretime 
+ABC: + map 
+ABC: + write_blif <abc-temp-dir>/output.blif 
+
+124.1.2. Re-integrating ABC results.
+ABC RESULTS:               AND cells:       10
+ABC RESULTS:            ANDNOT cells:       41
+ABC RESULTS:               MUX cells:       35
+ABC RESULTS:              NAND cells:       10
+ABC RESULTS:               NOR cells:       18
+ABC RESULTS:               NOT cells:       17
+ABC RESULTS:                OR cells:       15
+ABC RESULTS:             ORNOT cells:        3
+ABC RESULTS:              XNOR cells:       12
+ABC RESULTS:               XOR cells:       26
+ABC RESULTS:        internal signals:      160
+ABC RESULTS:           input signals:       59
+ABC RESULTS:          output signals:       36
+Removing temp directory.
+Removing global temp directory.
+
+125. Executing OPT pass (performing simple optimizations).
+
+125.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module g01_moving_average4.
+<suppressed ~18 debug messages>
+
+125.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\g01_moving_average4'.
+Computing hashes of 245 cells of `\g01_moving_average4'.
+Finding duplicate cells in `\g01_moving_average4'.
+Removed a total of 0 cells.
+
+125.3. Executing OPT_DFF pass (perform DFF optimizations).
+
+125.4. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \g01_moving_average4..
+Removed 1 unused cells and 155 unused wires.
+<suppressed ~3 debug messages>
+
+125.5. Finished fast OPT passes.
+
+126. Executing HIERARCHY pass (managing design hierarchy).
+
+126.1. Analyzing design hierarchy..
+Top module:  \g01_moving_average4
+
+126.2. Analyzing design hierarchy..
+Top module:  \g01_moving_average4
+Removed 0 unused modules.
+
+127. Executing CHECK pass (checking for obvious problems).
+Checking module g01_moving_average4...
+Found and reported 0 problems.
+
+128. Printing statistics.
+
+=== g01_moving_average4 ===
+
+        +----------Local Count, excluding submodules.
+        | 
+      192 wires
+      285 wire bits
+       15 public wires
+       85 public wire bits
+        6 ports
+       20 port bits
+      244 cells
+       41   $_ANDNOT_
+       10   $_AND_
+        8   $_DFFE_PP_
+       35   $_MUX_
+       10   $_NAND_
+       18   $_NOR_
+       16   $_NOT_
+        3   $_ORNOT_
+       15   $_OR_
+       24   $_SDFFCE_PN0P_
+       23   $_SDFFE_PN0P_
+        3   $_SDFF_PN0_
+       12   $_XNOR_
+       26   $_XOR_
+
+129. Executing OPT pass (performing simple optimizations).
+
+129.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module g01_moving_average4.
+
+129.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\g01_moving_average4'.
+Computing hashes of 244 cells of `\g01_moving_average4'.
+Finding duplicate cells in `\g01_moving_average4'.
+Removed a total of 0 cells.
+
+129.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \g01_moving_average4..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Removed 0 multiplexer ports.
+
+129.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \g01_moving_average4.
+Performed a total of 0 changes.
+
+129.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\g01_moving_average4'.
+Computing hashes of 244 cells of `\g01_moving_average4'.
+Finding duplicate cells in `\g01_moving_average4'.
+Removed a total of 0 cells.
+
+129.6. Executing OPT_DFF pass (perform DFF optimizations).
+
+129.7. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \g01_moving_average4..
+
+129.8. Executing OPT_EXPR pass (perform const folding).
+Optimizing module g01_moving_average4.
+
+129.9. Finished fast OPT passes. (There is nothing left to do.)
+
+130. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \g01_moving_average4..
+Removed 0 unused cells and 1 unused wires.
+<suppressed ~1 debug messages>
+{
+   "creator": "Yosys 0.62 (git sha1 7326bb7d6641500ecb285c291a54a662cb1e76cf, clang++ 21.1.2 -fPIC -O3)",
+   "invocation": "stat -json -liberty /home/runner/work/G01-Moving-Average-Filter/G01-Moving-Average-Filter/runs/RUN_2026-10-21_10-52-53/tmp/4774a2d9bd804b8ba1ce5df86bf9b7f2.lib ",
+   "modules": {
+      "\\g01_moving_average4": {
+         "num_wires":         191,
+         "num_wire_bits":     275,
+         "num_pub_wires":     14,
+         "num_pub_wire_bits": 75,
+         "num_ports":         6,
+         "num_port_bits":     20,
+         "num_memories":      0,
+         "num_memory_bits":   0,
+         "num_processes":     0,
+         "num_cells":         244,
+         "num_submodules":       0,
+         "num_cells_by_type": {
+            "$_ANDNOT_": 41,
+            "$_AND_": 10,
+            "$_DFFE_PP_": 8,
+            "$_MUX_": 35,
+            "$_NAND_": 10,
+            "$_NOR_": 18,
+            "$_NOT_": 16,
+            "$_ORNOT_": 3,
+            "$_OR_": 15,
+            "$_SDFFCE_PN0P_": 24,
+            "$_SDFFE_PN0P_": 23,
+            "$_SDFF_PN0_": 3,
+            "$_XNOR_": 12,
+            "$_XOR_": 26
+         }
+      }
+   },
+      "design": {
+         "num_wires":         191,
+         "num_wire_bits":     275,
+         "num_pub_wires":     14,
+         "num_pub_wire_bits": 75,
+         "num_ports":         6,
+         "num_port_bits":     20,
+         "num_memories":      0,
+         "num_memory_bits":   0,
+         "num_processes":     0,
+         "num_cells":         244,
+         "num_submodules":       0,
+         "num_cells_by_type": {
+            "$_ANDNOT_": 41,
+            "$_AND_": 10,
+            "$_DFFE_PP_": 8,
+            "$_MUX_": 35,
+            "$_NAND_": 10,
+            "$_NOR_": 18,
+            "$_NOT_": 16,
+            "$_ORNOT_": 3,
+            "$_OR_": 15,
+            "$_SDFFCE_PN0P_": 24,
+            "$_SDFFE_PN0P_": 23,
+            "$_SDFF_PN0_": 3,
+            "$_XNOR_": 12,
+            "$_XOR_": 26
+         }
+      }
+}
+
+131. Printing statistics.
+
+=== g01_moving_average4 ===
+
+        +----------Local Count, excluding submodules.
+        | 
+      191 wires
+      275 wire bits
+       14 public wires
+       75 public wire bits
+        6 ports
+       20 port bits
+      244 cells
+       41   $_ANDNOT_
+       10   $_AND_
+        8   $_DFFE_PP_
+       35   $_MUX_
+       10   $_NAND_
+       18   $_NOR_
+       16   $_NOT_
+        3   $_ORNOT_
+       15   $_OR_
+       24   $_SDFFCE_PN0P_
+       23   $_SDFFE_PN0P_
+        3   $_SDFF_PN0_
+       12   $_XNOR_
+       26   $_XOR_
+
+   Area for cell type $_ANDNOT_ is unknown!
+   Area for cell type $_AND_ is unknown!
+   Area for cell type $_DFFE_PP_ is unknown!
+   Area for cell type $_MUX_ is unknown!
+   Area for cell type $_NAND_ is unknown!
+   Area for cell type $_NOR_ is unknown!
+   Area for cell type $_NOT_ is unknown!
+   Area for cell type $_ORNOT_ is unknown!
+   Area for cell type $_OR_ is unknown!
+   Area for cell type $_SDFFCE_PN0P_ is unknown!
+   Area for cell type $_SDFFE_PN0P_ is unknown!
+   Area for cell type $_SDFF_PN0_ is unknown!
+   Area for cell type $_XNOR_ is unknown!
+   Area for cell type $_XOR_ is unknown!
+
+[INFO] Applying tri-state buffer mapping from '/home/runner/.ciel/ciel/sky130/versions/8afc8346a57fe1ab7934ba5a6056ea8b43078e71/sky130A/libs.tech/openlane/sky130_fd_sc_hd/tribuff_map.v'…
+
+132. Executing TECHMAP pass (map to technology primitives).
+
+132.1. Executing Verilog-2005 frontend: /home/runner/.ciel/ciel/sky130/versions/8afc8346a57fe1ab7934ba5a6056ea8b43078e71/sky130A/libs.tech/openlane/sky130_fd_sc_hd/tribuff_map.v
+Parsing Verilog input from `/home/runner/.ciel/ciel/sky130/versions/8afc8346a57fe1ab7934ba5a6056ea8b43078e71/sky130A/libs.tech/openlane/sky130_fd_sc_hd/tribuff_map.v' to AST representation.
+Generating RTLIL representation for module `$_TBUF_'.
+Successfully finished Verilog frontend.
+
+132.2. Continuing TECHMAP pass.
+No more expansions possible.
+<suppressed ~3 debug messages>
+
+133. Executing SIMPLEMAP pass (map simple cells to gate primitives).
+[INFO] Applying latch mapping from '/home/runner/.ciel/ciel/sky130/versions/8afc8346a57fe1ab7934ba5a6056ea8b43078e71/sky130A/libs.tech/openlane/sky130_fd_sc_hd/latch_map.v'…
+
+134. Executing TECHMAP pass (map to technology primitives).
+
+134.1. Executing Verilog-2005 frontend: /home/runner/.ciel/ciel/sky130/versions/8afc8346a57fe1ab7934ba5a6056ea8b43078e71/sky130A/libs.tech/openlane/sky130_fd_sc_hd/latch_map.v
+Parsing Verilog input from `/home/runner/.ciel/ciel/sky130/versions/8afc8346a57fe1ab7934ba5a6056ea8b43078e71/sky130A/libs.tech/openlane/sky130_fd_sc_hd/latch_map.v' to AST representation.
+Generating RTLIL representation for module `$_DLATCH_P_'.
+Generating RTLIL representation for module `$_DLATCH_N_'.
+Successfully finished Verilog frontend.
+
+134.2. Continuing TECHMAP pass.
+No more expansions possible.
+<suppressed ~4 debug messages>
+
+135. Executing SIMPLEMAP pass (map simple cells to gate primitives).
+
+136. Executing DFFLIBMAP pass (mapping DFF cells to sequential cells from liberty file).
+  cell sky130_fd_sc_hd__dfxtp_2 (noninv, pins=3, area=21.27) is a direct match for cell type $_DFF_P_.
+  cell sky130_fd_sc_hd__dfrtp_2 (noninv, pins=4, area=26.28) is a direct match for cell type $_DFF_PN0_.
+  cell sky130_fd_sc_hd__dfstp_2 (noninv, pins=4, area=26.28) is a direct match for cell type $_DFF_PN1_.
+  cell sky130_fd_sc_hd__dfbbn_2 (noninv, pins=6, area=35.03) is a direct match for cell type $_DFFSR_NNN_.
+  final dff cell mappings:
+    unmapped dff cell: $_DFF_N_
+    \sky130_fd_sc_hd__dfxtp_2 _DFF_P_ (.CLK( C), .D( D), .Q( Q));
+    unmapped dff cell: $_DFF_NN0_
+    unmapped dff cell: $_DFF_NN1_
+    unmapped dff cell: $_DFF_NP0_
+    unmapped dff cell: $_DFF_NP1_
+    \sky130_fd_sc_hd__dfrtp_2 _DFF_PN0_ (.CLK( C), .D( D), .Q( Q), .RESET_B( R));
+    \sky130_fd_sc_hd__dfstp_2 _DFF_PN1_ (.CLK( C), .D( D), .Q( Q), .SET_B( R));
+    unmapped dff cell: $_DFF_PP0_
+    unmapped dff cell: $_DFF_PP1_
+    unmapped dff cell: $_DFFE_NN_
+    unmapped dff cell: $_DFFE_NP_
+    unmapped dff cell: $_DFFE_PN_
+    unmapped dff cell: $_DFFE_PP_
+    \sky130_fd_sc_hd__dfbbn_2 _DFFSR_NNN_ (.CLK_N( C), .D( D), .Q( Q), .Q_N(~Q), .RESET_B( R), .SET_B( S));
+    unmapped dff cell: $_DFFSR_NNP_
+    unmapped dff cell: $_DFFSR_NPN_
+    unmapped dff cell: $_DFFSR_NPP_
+    unmapped dff cell: $_DFFSR_PNN_
+    unmapped dff cell: $_DFFSR_PNP_
+    unmapped dff cell: $_DFFSR_PPN_
+    unmapped dff cell: $_DFFSR_PPP_
+
+136.1. Executing DFFLEGALIZE pass (convert FFs to types supported by the target).
+Mapping DFF cells in module `\g01_moving_average4':
+  mapped 58 $_DFF_P_ cells to \sky130_fd_sc_hd__dfxtp_2 cells.
+{
+   "creator": "Yosys 0.62 (git sha1 7326bb7d6641500ecb285c291a54a662cb1e76cf, clang++ 21.1.2 -fPIC -O3)",
+   "invocation": "stat -json -liberty /home/runner/work/G01-Moving-Average-Filter/G01-Moving-Average-Filter/runs/RUN_2026-10-21_10-52-53/tmp/4774a2d9bd804b8ba1ce5df86bf9b7f2.lib ",
+   "modules": {
+      "\\g01_moving_average4": {
+         "num_wires":         296,
+         "num_wire_bits":     380,
+         "num_pub_wires":     14,
+         "num_pub_wire_bits": 75,
+         "num_ports":         6,
+         "num_port_bits":     20,
+         "num_memories":      0,
+         "num_memory_bits":   0,
+         "num_processes":     0,
+         "num_cells":         349,
+         "num_submodules":       0,
+         "area":              1233.683200,
+         "sequential_area":    1233.683200,
+         "num_cells_by_type": {
+            "$_ANDNOT_": 41,
+            "$_AND_": 10,
+            "$_MUX_": 140,
+            "$_NAND_": 10,
+            "$_NOR_": 18,
+            "$_NOT_": 16,
+            "$_ORNOT_": 3,
+            "$_OR_": 15,
+            "$_XNOR_": 12,
+            "$_XOR_": 26,
+            "sky130_fd_sc_hd__dfxtp_2": 58
+         }
+      }
+   },
+      "design": {
+         "num_wires":         296,
+         "num_wire_bits":     380,
+         "num_pub_wires":     14,
+         "num_pub_wire_bits": 75,
+         "num_ports":         6,
+         "num_port_bits":     20,
+         "num_memories":      0,
+         "num_memory_bits":   0,
+         "num_processes":     0,
+         "num_cells":         349,
+         "num_submodules":       0,
+         "area":              1233.683200,
+         "sequential_area":    1233.683200,
+         "num_cells_by_type": {
+            "$_ANDNOT_": 41,
+            "$_AND_": 10,
+            "$_MUX_": 140,
+            "$_NAND_": 10,
+            "$_NOR_": 18,
+            "$_NOT_": 16,
+            "$_ORNOT_": 3,
+            "$_OR_": 15,
+            "$_XNOR_": 12,
+            "$_XOR_": 26,
+            "sky130_fd_sc_hd__dfxtp_2": 58
+         }
+      }
+}
+
+137. Printing statistics.
+
+=== g01_moving_average4 ===
+
+        +----------Local Count, excluding submodules.
+        |        +-Local Area, excluding submodules.
+        |        | 
+      296        - wires
+      380        - wire bits
+       14        - public wires
+       75        - public wire bits
+        6        - ports
+       20        - port bits
+      349 1.23E+03 cells
+       41        -   $_ANDNOT_
+       10        -   $_AND_
+      140        -   $_MUX_
+       10        -   $_NAND_
+       18        -   $_NOR_
+       16        -   $_NOT_
+        3        -   $_ORNOT_
+       15        -   $_OR_
+       12        -   $_XNOR_
+       26        -   $_XOR_
+       58 1.23E+03   sky130_fd_sc_hd__dfxtp_2
+
+   Area for cell type $_ANDNOT_ is unknown!
+   Area for cell type $_AND_ is unknown!
+   Area for cell type $_MUX_ is unknown!
+   Area for cell type $_NAND_ is unknown!
+   Area for cell type $_NOR_ is unknown!
+   Area for cell type $_NOT_ is unknown!
+   Area for cell type $_ORNOT_ is unknown!
+   Area for cell type $_OR_ is unknown!
+   Area for cell type $_XNOR_ is unknown!
+   Area for cell type $_XOR_ is unknown!
+
+   Chip area for module '\g01_moving_average4': 1233.683200
+     of which used for sequential elements: 1233.683200 (100.00%)
+
+[INFO] Using generated ABC script '/home/runner/work/G01-Moving-Average-Filter/G01-Moving-Average-Filter/runs/RUN_2026-10-21_10-52-53/06-yosys-synthesis/AREA_0.abc'…
+
+138. Executing ABC pass (technology mapping using ABC).
+
+138.1. Extracting gate netlist of module `\g01_moving_average4' to `/tmp/yosys-abc-C7Rfse/input.blif'..
+
+138.1.1. Executed ABC.
+Extracted 291 gates and 359 wires to a netlist network with 67 inputs and 58 outputs.
+Running ABC script: /tmp/yosys-abc-C7Rfse/abc.script
+ABC: ======== ABC command line "source /tmp/yosys-abc-C7Rfse/abc.script"
+ABC: + read_blif /tmp/yosys-abc-C7Rfse/input.blif 
+ABC: + read_lib -w /home/runner/work/G01-Moving-Average-Filter/G01-Moving-Average-Filter/runs/RUN_2026-10-21_10-52-53/tmp/4774a2d9bd804b8ba1ce5df86bf9b7f2.lib 
+ABC: Parsing finished successfully.  Parsing time =     0.05 sec
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dfbbn_2".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dfrbp_2".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dfrtp_2".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dfrtp_4".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dfsbp_2".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dfstp_2".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dfstp_4".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dfxbp_2".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dfxtp_2".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dfxtp_4".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dlxtn_1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dlxtn_2".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dlxtn_4".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dlxtp_1".
+ABC: Scl_LibertyReadGenlib() skipped three-state cell "sky130_fd_sc_hd__ebufn_2".
+ABC: Scl_LibertyReadGenlib() skipped three-state cell "sky130_fd_sc_hd__ebufn_4".
+ABC: Scl_LibertyReadGenlib() skipped three-state cell "sky130_fd_sc_hd__ebufn_8".
+ABC: Library "sky130_fd_sc_hd__tt_025C_1v80" from "/home/runner/work/G01-Moving-Average-Filter/G01-Moving-Average-Filter/runs/RUN_2026-10-21_10-52-53/tmp/4774a2d9bd804b8ba1ce5df86bf9b7f2.lib" has 175 cells (17 skipped: 14 seq; 3 tri-state; 0 no func; 0 dont_use; 0 with 2 outputs; 0 with 3+ outputs).  Time =     0.08 sec
+ABC: Memory =    9.54 MB. Time =     0.08 sec
+ABC: Warning: Detected 2 multi-output cells (for example, "sky130_fd_sc_hd__fa_1").
+ABC: + read_constr -v /home/runner/work/G01-Moving-Average-Filter/G01-Moving-Average-Filter/runs/RUN_2026-10-21_10-52-53/06-yosys-synthesis/synthesis.abc.sdc 
+ABC: Setting driving cell to be "sky130_fd_sc_hd__inv_2".
+ABC: Setting output load to be 33.442001.
+ABC: + source /home/runner/work/G01-Moving-Average-Filter/G01-Moving-Average-Filter/runs/RUN_2026-10-21_10-52-53/06-yosys-synthesis/AREA_0.abc 
+ABC: Error: The network is combinational.
+ABC: WireLoad = "none"  Gates =    199 (  1.5 %)   Cap = 14.1 ff (  3.0 %)   Area =     1901.82 ( 92.5 %)   Delay =  3349.75 ps  ( 17.6 %)               
+ABC: Path  0 --      30 : 0    8 pi                         A =   0.00  Df = 146.6  -80.9 ps  S = 214.7 ps  Cin =  0.0 ff  Cout =  46.1 ff  Cmax =   0.0 ff  G =    0  
+ABC: Path  1 --     191 : 6    2 sky130_fd_sc_hd__mux4_2    A =  22.52  Df = 613.1  -20.4 ps  S = 112.6 ps  Cin =  2.6 ff  Cout =  13.2 ff  Cmax = 301.2 ff  G =  481  
+ABC: Path  2 --     193 : 2    3 sky130_fd_sc_hd__xor2_2    A =  16.27  Df = 790.0   -8.7 ps  S = 162.1 ps  Cin =  8.6 ff  Cout =   8.6 ff  Cmax = 130.0 ff  G =   96  
+ABC: Path  3 --     199 : 3    3 sky130_fd_sc_hd__a21o_2    A =   8.76  Df = 998.3  -48.5 ps  S =  62.1 ps  Cin =  2.4 ff  Cout =   9.6 ff  Cmax = 309.5 ff  G =  385  
+ABC: Path  4 --     213 : 3    2 sky130_fd_sc_hd__a21o_2    A =   8.76  Df =1229.3  -31.1 ps  S =  67.9 ps  Cin =  2.4 ff  Cout =  10.9 ff  Cmax = 309.5 ff  G =  449  
+ABC: Path  5 --     228 : 3    4 sky130_fd_sc_hd__a21o_2    A =   8.76  Df =1471.1 -109.4 ps  S =  86.1 ps  Cin =  2.4 ff  Cout =  14.8 ff  Cmax = 309.5 ff  G =  596  
+ABC: Path  6 --     259 : 4    3 sky130_fd_sc_hd__a211o_2   A =  10.01  Df =1822.9 -309.4 ps  S =  64.3 ps  Cin =  2.4 ff  Cout =   9.2 ff  Cmax = 325.0 ff  G =  371  
+ABC: Path  7 --     277 : 4    3 sky130_fd_sc_hd__a31o_2    A =   8.76  Df =2106.9 -390.8 ps  S = 105.4 ps  Cin =  2.4 ff  Cout =  15.6 ff  Cmax = 271.9 ff  G =  641  
+ABC: Path  8 --     285 : 5    3 sky130_fd_sc_hd__a2111oi_2 A =  15.01  Df =2647.9 -644.4 ps  S = 512.2 ps  Cin =  4.6 ff  Cout =  14.1 ff  Cmax =  56.8 ff  G =  293  
+ABC: Path  9 --     291 : 2    2 sky130_fd_sc_hd__xnor2_2   A =  16.27  Df =2963.6 -747.6 ps  S = 184.6 ps  Cin =  8.5 ff  Cout =  10.1 ff  Cmax = 121.8 ff  G =  114  
+ABC: Path 10 --     293 : 3    1 sky130_fd_sc_hd__a21oi_2   A =   8.76  Df =3349.7 -968.2 ps  S = 417.9 ps  Cin =  4.6 ff  Cout =  33.4 ff  Cmax = 128.2 ff  G =  733  
+ABC: Start-point = pi29 ($\sample_mem$rdreg[0]$q [0]).  End-point = po42 ($auto$rtlil.cc:3583:MuxGate$1295).
+ABC: netlist                       : i/o =   67/   58  lat =    0  nd =   199  edge =    597  area =1902.21  delay =11.00  lev = 11
+ABC: + write_blif /tmp/yosys-abc-C7Rfse/output.blif 
+
+138.1.2. Re-integrating ABC results.
+ABC RESULTS:   sky130_fd_sc_hd__a2111oi_2 cells:        1
+ABC RESULTS:   sky130_fd_sc_hd__a211o_2 cells:        4
+ABC RESULTS:   sky130_fd_sc_hd__a21bo_2 cells:        1
+ABC RESULTS:   sky130_fd_sc_hd__a21o_2 cells:        7
+ABC RESULTS:   sky130_fd_sc_hd__a21oi_2 cells:        8
+ABC RESULTS:   sky130_fd_sc_hd__a221o_2 cells:        1
+ABC RESULTS:   sky130_fd_sc_hd__a22o_2 cells:       32
+ABC RESULTS:   sky130_fd_sc_hd__a2bb2o_2 cells:        2
+ABC RESULTS:   sky130_fd_sc_hd__a311o_2 cells:        2
+ABC RESULTS:   sky130_fd_sc_hd__a31o_2 cells:        4
+ABC RESULTS:   sky130_fd_sc_hd__and2_2 cells:        8
+ABC RESULTS:   sky130_fd_sc_hd__and2b_2 cells:        4
+ABC RESULTS:   sky130_fd_sc_hd__and3_2 cells:        6
+ABC RESULTS:   sky130_fd_sc_hd__and3b_2 cells:        1
+ABC RESULTS:   sky130_fd_sc_hd__and4b_2 cells:        1
+ABC RESULTS:   sky130_fd_sc_hd__inv_2 cells:        3
+ABC RESULTS:   sky130_fd_sc_hd__mux2_1 cells:        2
+ABC RESULTS:   sky130_fd_sc_hd__mux4_2 cells:        8
+ABC RESULTS:   sky130_fd_sc_hd__nand2_2 cells:       29
+ABC RESULTS:   sky130_fd_sc_hd__nand2b_2 cells:        2
+ABC RESULTS:   sky130_fd_sc_hd__nor2_2 cells:       13
+ABC RESULTS:   sky130_fd_sc_hd__nor3_2 cells:        1
+ABC RESULTS:   sky130_fd_sc_hd__o211a_2 cells:       13
+ABC RESULTS:   sky130_fd_sc_hd__o21a_2 cells:        4
+ABC RESULTS:   sky130_fd_sc_hd__o21ai_2 cells:        3
+ABC RESULTS:   sky130_fd_sc_hd__o221a_2 cells:        1
+ABC RESULTS:   sky130_fd_sc_hd__o22a_2 cells:        1
+ABC RESULTS:   sky130_fd_sc_hd__o311a_2 cells:        2
+ABC RESULTS:   sky130_fd_sc_hd__o31a_2 cells:        1
+ABC RESULTS:   sky130_fd_sc_hd__or2_2 cells:       17
+ABC RESULTS:   sky130_fd_sc_hd__xnor2_2 cells:       12
+ABC RESULTS:   sky130_fd_sc_hd__xor2_2 cells:        5
+ABC RESULTS:        internal signals:      234
+ABC RESULTS:           input signals:       67
+ABC RESULTS:          output signals:       58
+Removing temp directory.
+Removing global temp directory.
+
+139. Executing SETUNDEF pass (replace undef values with defined constants).
+
+140. Executing HILOMAP pass (mapping to constant drivers).
+
+141. Executing SPLITNETS pass (splitting up multi-bit signals).
+
+142. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \g01_moving_average4..
+Removed 0 unused cells and 378 unused wires.
+<suppressed ~11 debug messages>
+
+143. Executing INSBUF pass (insert buffer cells for connected wires).
+
+144. Executing CHECK pass (checking for obvious problems).
+Checking module g01_moving_average4...
+Found and reported 0 problems.
+{
+   "creator": "Yosys 0.62 (git sha1 7326bb7d6641500ecb285c291a54a662cb1e76cf, clang++ 21.1.2 -fPIC -O3)",
+   "invocation": "stat -json -liberty /home/runner/work/G01-Moving-Average-Filter/G01-Moving-Average-Filter/runs/RUN_2026-10-21_10-52-53/tmp/4774a2d9bd804b8ba1ce5df86bf9b7f2.lib ",
+   "modules": {
+      "\\g01_moving_average4": {
+         "num_wires":         254,
+         "num_wire_bits":     268,
+         "num_pub_wires":     51,
+         "num_pub_wire_bits": 65,
+         "num_ports":         6,
+         "num_port_bits":     20,
+         "num_memories":      0,
+         "num_memory_bits":   0,
+         "num_processes":     0,
+         "num_cells":         257,
+         "num_submodules":       0,
+         "area":              3135.507200,
+         "sequential_area":    1233.683200,
+         "num_cells_by_type": {
+            "sky130_fd_sc_hd__a2111oi_2": 1,
+            "sky130_fd_sc_hd__a211o_2": 4,
+            "sky130_fd_sc_hd__a21bo_2": 1,
+            "sky130_fd_sc_hd__a21o_2": 7,
+            "sky130_fd_sc_hd__a21oi_2": 8,
+            "sky130_fd_sc_hd__a221o_2": 1,
+            "sky130_fd_sc_hd__a22o_2": 32,
+            "sky130_fd_sc_hd__a2bb2o_2": 2,
+            "sky130_fd_sc_hd__a311o_2": 2,
+            "sky130_fd_sc_hd__a31o_2": 4,
+            "sky130_fd_sc_hd__and2_2": 8,
+            "sky130_fd_sc_hd__and2b_2": 4,
+            "sky130_fd_sc_hd__and3_2": 6,
+            "sky130_fd_sc_hd__and3b_2": 1,
+            "sky130_fd_sc_hd__and4b_2": 1,
+            "sky130_fd_sc_hd__dfxtp_2": 58,
+            "sky130_fd_sc_hd__inv_2": 3,
+            "sky130_fd_sc_hd__mux2_1": 2,
+            "sky130_fd_sc_hd__mux4_2": 8,
+            "sky130_fd_sc_hd__nand2_2": 29,
+            "sky130_fd_sc_hd__nand2b_2": 2,
+            "sky130_fd_sc_hd__nor2_2": 13,
+            "sky130_fd_sc_hd__nor3_2": 1,
+            "sky130_fd_sc_hd__o211a_2": 13,
+            "sky130_fd_sc_hd__o21a_2": 4,
+            "sky130_fd_sc_hd__o21ai_2": 3,
+            "sky130_fd_sc_hd__o221a_2": 1,
+            "sky130_fd_sc_hd__o22a_2": 1,
+            "sky130_fd_sc_hd__o311a_2": 2,
+            "sky130_fd_sc_hd__o31a_2": 1,
+            "sky130_fd_sc_hd__or2_2": 17,
+            "sky130_fd_sc_hd__xnor2_2": 12,
+            "sky130_fd_sc_hd__xor2_2": 5
+         }
+      }
+   },
+      "design": {
+         "num_wires":         254,
+         "num_wire_bits":     268,
+         "num_pub_wires":     51,
+         "num_pub_wire_bits": 65,
+         "num_ports":         6,
+         "num_port_bits":     20,
+         "num_memories":      0,
+         "num_memory_bits":   0,
+         "num_processes":     0,
+         "num_cells":         257,
+         "num_submodules":       0,
+         "area":              3135.507200,
+         "sequential_area":    1233.683200,
+         "num_cells_by_type": {
+            "sky130_fd_sc_hd__a2111oi_2": 1,
+            "sky130_fd_sc_hd__a211o_2": 4,
+            "sky130_fd_sc_hd__a21bo_2": 1,
+            "sky130_fd_sc_hd__a21o_2": 7,
+            "sky130_fd_sc_hd__a21oi_2": 8,
+            "sky130_fd_sc_hd__a221o_2": 1,
+            "sky130_fd_sc_hd__a22o_2": 32,
+            "sky130_fd_sc_hd__a2bb2o_2": 2,
+            "sky130_fd_sc_hd__a311o_2": 2,
+            "sky130_fd_sc_hd__a31o_2": 4,
+            "sky130_fd_sc_hd__and2_2": 8,
+            "sky130_fd_sc_hd__and2b_2": 4,
+            "sky130_fd_sc_hd__and3_2": 6,
+            "sky130_fd_sc_hd__and3b_2": 1,
+            "sky130_fd_sc_hd__and4b_2": 1,
+            "sky130_fd_sc_hd__dfxtp_2": 58,
+            "sky130_fd_sc_hd__inv_2": 3,
+            "sky130_fd_sc_hd__mux2_1": 2,
+            "sky130_fd_sc_hd__mux4_2": 8,
+            "sky130_fd_sc_hd__nand2_2": 29,
+            "sky130_fd_sc_hd__nand2b_2": 2,
+            "sky130_fd_sc_hd__nor2_2": 13,
+            "sky130_fd_sc_hd__nor3_2": 1,
+            "sky130_fd_sc_hd__o211a_2": 13,
+            "sky130_fd_sc_hd__o21a_2": 4,
+            "sky130_fd_sc_hd__o21ai_2": 3,
+            "sky130_fd_sc_hd__o221a_2": 1,
+            "sky130_fd_sc_hd__o22a_2": 1,
+            "sky130_fd_sc_hd__o311a_2": 2,
+            "sky130_fd_sc_hd__o31a_2": 1,
+            "sky130_fd_sc_hd__or2_2": 17,
+            "sky130_fd_sc_hd__xnor2_2": 12,
+            "sky130_fd_sc_hd__xor2_2": 5
+         }
+      }
+}
+
+145. Printing statistics.
+
+=== g01_moving_average4 ===
+
+        +----------Local Count, excluding submodules.
+        |        +-Local Area, excluding submodules.
+        |        | 
+      254        - wires
+      268        - wire bits
+       51        - public wires
+       65        - public wire bits
+        6        - ports
+       20        - port bits
+      257 3.14E+03 cells
+        1   15.014   sky130_fd_sc_hd__a2111oi_2
+        4   40.038   sky130_fd_sc_hd__a211o_2
+        1    10.01   sky130_fd_sc_hd__a21bo_2
+        7   61.309   sky130_fd_sc_hd__a21o_2
+        8   70.067   sky130_fd_sc_hd__a21oi_2
+        1   11.261   sky130_fd_sc_hd__a221o_2
+       32  320.307   sky130_fd_sc_hd__a22o_2
+        2   22.522   sky130_fd_sc_hd__a2bb2o_2
+        2   22.522   sky130_fd_sc_hd__a311o_2
+        4   35.034   sky130_fd_sc_hd__a31o_2
+        8   60.058   sky130_fd_sc_hd__and2_2
+        4   35.034   sky130_fd_sc_hd__and2b_2
+        6   45.043   sky130_fd_sc_hd__and3_2
+        1    10.01   sky130_fd_sc_hd__and3b_2
+        1   11.261   sky130_fd_sc_hd__and4b_2
+       58 1.23E+03   sky130_fd_sc_hd__dfxtp_2
+        3   11.261   sky130_fd_sc_hd__inv_2
+        2   22.522   sky130_fd_sc_hd__mux2_1
+        8  180.173   sky130_fd_sc_hd__mux4_2
+       29  181.424   sky130_fd_sc_hd__nand2_2
+        2   17.517   sky130_fd_sc_hd__nand2b_2
+       13   81.328   sky130_fd_sc_hd__nor2_2
+        1    10.01   sky130_fd_sc_hd__nor3_2
+       13  130.125   sky130_fd_sc_hd__o211a_2
+        4   35.034   sky130_fd_sc_hd__o21a_2
+        3   26.275   sky130_fd_sc_hd__o21ai_2
+        1   11.261   sky130_fd_sc_hd__o221a_2
+        1    10.01   sky130_fd_sc_hd__o22a_2
+        2   22.522   sky130_fd_sc_hd__o311a_2
+        1    10.01   sky130_fd_sc_hd__o31a_2
+       17  106.352   sky130_fd_sc_hd__or2_2
+       12  195.187   sky130_fd_sc_hd__xnor2_2
+        5   81.328   sky130_fd_sc_hd__xor2_2
+
+   Chip area for module '\g01_moving_average4': 3135.507200
+     of which used for sequential elements: 1233.683200 (39.35%)
+
+146. Executing Verilog backend.
+Dumping module `\g01_moving_average4'.
+
+147. Executing JSON backend.
