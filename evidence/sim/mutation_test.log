@@ -1,0 +1,17 @@
+=== KET QUA TESTBENCH GOC (VOI RTL LOI) ===
+G01 TB completed
+tb/g01_tb.sv:62: $finish called at 196 (1s)
+
+=== KET QUA TESTBENCH OWN (VOI RTL LOI) ===
+
+=== KET QUA TESTBENCH OWN (VOI RTL LOI) ===
+
+=== KET QUA TESTBENCH OWN (VOI RTL LOI) ===
+VCD info: dumpfile g01_wave_own.vcd opened for output.
+[OWN-1] Test mid-stream reset...
+[OWN-1] PASS
+[OWN-2] Test intermittent valid_in...
+[OWN-2] PASS
+[OWN-3] Test bien tran: bon mau 255 (tong = 1020)...
+FATAL: ./tb_own/g01_tb_own.sv:116: OWN-3 FAIL: expected avg_out=255, got 127
+       Time: 266000  Scope: g01_tb_own
